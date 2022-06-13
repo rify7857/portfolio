@@ -1,0 +1,661 @@
+@charset "UTF-8";
+table {
+	border: 1px solid;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+thead,
+tbody,
+tfoot,
+tr,
+td,
+th{
+	border-width:1px !important;
+	text-align: center;
+}
+.modal-select-time{
+	max-width: 320px;
+}
+.modal-window{
+	position:absolute;
+	width:320px;
+	height:300px;
+	left:40%;
+	top:20%;
+	display:none;
+	border: 1px solid;
+	background-color: rgb(255,255,255);
+	border-color:rgb(128,65,217);
+	border-radius: 10px; 
+	box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+
+}
+.text-box{
+	display: flex;
+	flex-direction: row;
+}
+.store-intro-img-ul{
+	display: flex;
+    margin:auto;
+    list-style: none;
+}
+#img-div{
+	display: flex;
+	flex-direction: row;
+	width:930px;
+}
+#img-div-cover{
+	overflow:hidden;
+}
+.reservation{
+	position: relative;
+}
+.reservation-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  display:none;
+}
+.modal-input{
+	margin-top:40px;
+	margin-bottom: 40px;
+	display: flex;
+	flex-direction: column;
+}
+.reservation-button{
+	color: rgb(204,61,61);
+	border-color: rgb(204,61,61);
+	border-radius: 3px;
+	width:100%;
+}
+.button-location{
+	position:absolute;
+	top:80%;
+	width: 100%;
+}
+.day_prev_disable{
+	color:rgb(246,246,246);
+	border-color: black;
+}
+.day_next_disable{
+	color:rgb(246,246,246);
+	border-color: black;
+	
+}
+
+.head-nav-container {
+   position: relative;
+   background-color: rgb(255,187,0);
+   height: 80px; 
+   text-align: center;
+   vertical-align: middle;
+   margin-bottom: 50px;
+}
+
+.head-nav-title {
+   position: relative;
+   color: brown;
+   font-size: 15pt;
+   font-weight: bold;
+   top: 5px;
+}
+
+.head-nav-inner {
+   display: inline-block;
+   width: 100%;
+   height: 50%;
+   position: absolute;
+   bottom: 0px;
+   left: 0px;
+   
+} 
+
+.nav-col-ul {
+   display: inline-block;
+   margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  height: 100%;
+  vertical-align: middle;
+   
+}
+
+.nav-col-ul li{
+   width: calc(80%/5);
+   position: relative;
+   float: left;
+   display: inline-block;
+   text-align: center;
+   font-size: 15pt;
+   font-weight: bold;
+   height: 100%;
+   vertical-align: middle;
+}
+
+
+
+.nav-col-ul li:hover {
+   background: rgb(255,187,0);
+   transition: 0.3s;
+   
+}
+
+.nav-col-ul li a {
+   vertical-align: middle;
+   text-decoration: none;
+   color: white;
+}
+
+.cal_nav{
+	display: flex;
+	flex-direction: row;
+}
+
+.review-delete-button , .review-update-button , .review-update-cancle , .review-update-submit{
+	position: relative;
+	left: 100%;
+	border-style:none;
+	background-color: white;
+	color : red;
+	font-size: 12px;
+}
+.review-update-button, .review-update-submit{
+	color : blue;
+}
+.review-score-select{
+	width: 46%;
+    font-size: 17px;
+    height: 30%
+}
+@media screen and (min-width: 768px) and (max-width:992px) {
+   
+   
+   .board-caption {
+   font-size: 2em;
+   }
+
+}
+
+
+@media (max-width:992px) {
+   .table {
+    font-size: 0.7%;
+   }
+}
+
+@media screen and (min-width: 425px) and (max-width:768px) {
+   .board-caption {
+   font-size: 1.5em;
+   }
+   
+   .nav-col-ul li {
+      width: calc(80%/4);
+      font-size: 12pt;
+   }
+   
+   .nav-col-ul li:nth-last-child(1) {
+   display: none;
+   }
+   
+   .btn-board_write {
+      width: 60px;
+      height: 25px;
+      
+   }
+}
+
+@media screen and (min-width: 250px) and (max-width:425px) {
+   .board-caption {
+   font-size: 1.5em;
+   }
+   
+   .nav-col-ul li {
+      width: calc(80%/3);
+      font-size: 11pt;
+   }
+   
+   .nav-col-ul li:nth-last-child(1) {
+   display: none;
+   }
+   .nav-col-ul li:nth-last-child(2) {
+   display: none;
+   }
+   .btn-board_write {
+      width: 60px;
+      height: 25px;
+      
+   }
+ span{
+ 	margin-right:5px;
+ }  
+
+}
+ .mobile-hidden{
+	display: block;
+}
+.button_before{
+	display:block;
+}
+.button_next{
+	display:block;
+}
+
+	@media(max-width:1024px){
+		.laptop-hidden{
+			display: none;
+		}
+		#img-div-cover{
+		width : 620px;
+		}
+	}
+	.review-score{
+		color: orange;
+		font-size : 25px;
+	}
+	#intro{
+		color: brown;
+	}
+	#average-score{
+		font-style: oblique;
+		color: chocolate;
+	}
+	.font-com{
+		color: brown;
+		font-weight: bolder;
+	}
+
+/*-----------------------------------------------------------------------
+
+ 								PC 
+ 								
+ ------------------------------------------------------------------------*/
+@media (min-width : 767.9999px) {
+	.store-intro{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+	}
+	.store-intro-img-box {
+		display: flex;
+		flex-direction: row;
+		width : 100%;
+		align-items: center;
+		margin-bottom: 30px;
+		justify-content: space-between;
+	}
+	.store-intro-img{
+		margin-right : 10px;
+		width : 300px;
+		height : 300px;
+		background-size: cover;
+		margin-bottom: 20px;
+		display: block;
+	}
+
+
+	.store-intro-box{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		border-top: 1px black solid;
+		border-bottom: 1px grey solid;
+	}
+	.store-intro-text-box{
+		padding : 15px;
+		margin-right:20px;
+		
+	
+	}
+	.store-intro-icon-box{
+		padding : 15px;
+		display: flex;
+		flex-direction: row;
+	}
+	.store-intro-img-2{
+		width:50px;
+		background-size: cover;
+	}
+	.store-intro-text-box >ul>li{
+		font-size: 25px;
+		color: orange;
+	}
+	h2{
+		margin-bottom: 30px;
+	}
+	.store-intro-map{
+		padding :15px;
+	}
+
+	.store-intro-maintext-box{
+		display: flex;
+		flex-direction: row;
+	}
+	.store-user{
+		display: flex;
+		flex-direction: row;
+
+		border-bottom: 2px solid grey;
+		margin: 20px;
+		color
+	}
+	.store-review{
+		background-color:antiquewhite;
+		width: 60%;
+	}
+	.store-review-content{
+		margin-left: 20px;
+		
+	}
+
+	td{
+		width : 200px;
+		background-color:rgb(255,216,216); 
+	}
+	.reservation{
+		border-top:1px grey solid;
+		border-bottom:1px grey solid;
+		margin-top : 50px;
+		width: 60%;
+		text-align: center;
+		
+	}
+	.reservation-table{
+		margin-bottom : 60px;
+		
+	}
+	.delivery{
+		display: flex;
+		flex-direction: row;
+	}
+	.goods{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.review-write{
+		width : 100%;
+		height: 20%;
+	}
+	.review-write-box{
+		display: flex;
+		flex-direction: row;
+	}
+	.review-button{
+		width: 28%;
+    font-size: 19%;
+    color: white;
+    background-color: brown;
+    font-weight: bold;
+    border-radius: 5px;
+	}
+	 span{
+ 	margin-right:5px;
+ }  
+
+}
+/*-----------------------------------------------------------------------
+
+ 								tablet 
+ 								
+ ------------------------------------------------------------------------*/
+@media (max-width : 767.9998px) {
+	.store-intro{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+	}
+	.store-intro-img-box{
+		display: flex;
+		flex-direction: row;
+		width : 100%;
+		align-items: center;
+		margin-bottom: 30px;
+		justify-content: space-between;
+	}
+	.store-intro-img{
+		margin-right : 10px;
+		width : 300px;
+		height:300px;
+		background-size: cover;
+		margin-bottom: 20px;
+	}
+
+	.store-intro-box{
+		display: flex;
+		flex-direction: column-reverse;
+		justify-content: space-between;
+		border-top: 1px black solid;
+		border-bottom: 1px grey solid;
+	}
+	.store-intro-text-box{
+		padding : 15px;
+		margin-right:20px;
+		
+	
+	}
+	.store-intro-icon-box{
+		padding : 15px;
+		display: flex;
+		flex-direction: row;
+	}
+	.store-intro-img-2{
+		width:50px;
+		background-size: cover;
+	}
+	.store-intro-text-box >ul>li{
+		font-size: 25px;
+		color: orange;
+	}
+	h2{
+		margin-bottom: 30px;
+	}
+	.store-intro-map{
+		padding :15px;
+	}
+
+	.store-intro-maintext-box{
+		display: flex;
+		flex-direction: column;
+	}
+	.store-user{
+		display: flex;
+		flex-direction: column;
+
+		border-bottom: 2px solid grey;
+		margin: 20px;
+		color
+	}
+	.store-review-content{
+		margin-left: 20px;
+	}
+	.store-review{
+		margin: auto;
+		width: 70%;
+	}
+
+		td{
+		background-color:rgb(255,216,216); 
+	
+	}
+	.reservation{
+		border-top:1px grey solid;
+		border-bottom:1px grey solid;
+		margin-top : 50px;
+	}
+	.reservation-table{
+		margin-bottom : 60px;
+		
+	}
+	.delivery{
+		display: flex;
+		flex-direction: column;
+	}
+	.goods{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.score-mobile{
+		display: flex;
+		flex-direction: row;
+		margin-bottom: 10px;
+		
+	}
+		.review-write{
+		width : 100%;
+	}
+	.review-write-box{
+		display: flex;
+		flex-direction: row;
+	}
+	.review-button{
+		width:70px;
+	}
+.modal-window{
+	left:30%;
+}
+.store-intro-img-ul{
+	display: flex;
+	flex-direction: row;
+	margin-left:5px;
+}
+ .mobile-hidden{
+	display: none;
+}
+.button_before{
+	display:none;
+}
+.button_next{
+	display:none;
+}
+
+#img-div{
+	height: 300px;
+}
+#img-div-cover{
+	width:300px;
+	margin-left:200px;
+}
+}
+/*-----------------------------------------------------------------------
+
+ 								mobile 
+ 								
+ ------------------------------------------------------------------------*/
+@media (max-width : 425.9998px) {
+
+	.store-intro-box{
+		display: flex;
+		flex-direction: column-reverse;
+		justify-content: space-between;
+		border-top: 1px black solid;
+		border-bottom: 1px grey solid;
+	}
+
+	.store-intro-icon-box{
+		padding : 15px;
+		display: flex;
+		flex-direction: row;
+	}
+	.store-intro-img-2{
+		width:50px;
+		background-size: cover;
+	}
+
+	h2{
+		margin-bottom: 30px;
+	}
+	.store-intro-map{
+		padding :15px;
+	}
+
+	.store-intro-maintext-box{
+		display: flex;
+		flex-direction: column;
+	}
+	.store-user{
+		display: flex;
+		flex-direction: column;
+
+		border-bottom: 2px solid grey;
+		margin: 20px;
+		color
+	}
+	.store-review-content{
+		margin-left: 20px;
+	}
+
+	span{
+		display: block;
+	}
+	td{
+		background-color:rgb(255,216,216); 
+		width: 40px;
+	}
+	.reservation{
+		border-top:1px grey solid;
+		border-bottom:1px grey solid;
+		margin-top : 50px;
+	}
+	.reservation-table{
+		margin-bottom : 60px;
+		
+	}
+	.delivery{
+		display: flex;
+		flex-direction: column;
+	}
+	.goods{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.score-mobile{
+		display: flex;
+		flex-direction: row;
+		margin-bottom: 10px;
+	}
+	.calendar_reservation{
+	width:35px;
+}
+.modal-window{
+	left:12.5%;
+	
+}
+.store-intro-img-ul{
+	display: flex;
+	flex-direction:row;
+    list-style: none;
+}
+#img-div-cover{
+	margin-left:0px;
+}
+}
+/*-----------------------------------------------------------------------
+
+ 								mobile width :320px
+ 								
+ ------------------------------------------------------------------------*/
+
+@media (max-width : 320px){
+	.modal-window{
+	left:0;
+}
+}

@@ -1,0 +1,317 @@
+@charset "UTF-8";
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+#postcode {
+	width: 30% !important;
+}
+
+.addr_btn {
+	width: 40% !important;
+	background-color: brown;
+	color: #fff;
+	border: none;
+	border-radius: 5%;
+}
+
+#address {
+	width: 100% !important;
+}
+
+#detailAddress {
+	width: 60% !important;
+}
+
+#extraAddress {
+	width: 35% !important;
+}
+
+ul > li { 
+	list-style: none
+}
+
+a {
+	text-decoration: none;
+}
+
+.clearfix::after { 
+	content: "";display: block;clear: both;
+}
+
+ul.join_box {
+	border: 1px solid #ddd;
+	background-color: #fff;
+}
+
+.checkBox, .checkBox > ul {
+	position: relative;
+}
+
+.checkBox > ul > li {
+	float: left;
+}
+
+.checkBox > ul > li:first-child {
+	width: 85%;
+	padding: 15px;
+	font-weight: 600;
+	color: #888;
+}
+
+.checkBox > ul > li:nth-child(2) {
+	position: absolute;
+	top: 50%;
+	right: 30px;
+	margin-top: -12px;
+}
+
+.checkBox textarea {
+	width: 96%;
+	height: 90px;
+	margin: 0 2%;
+	background-color: #f7f7f7;
+	color: #888;
+	border: none;
+}
+
+.join_box .chk, .chkAll {
+	width: 15px !important;
+}
+
+.agree {
+	font-size: 10px;
+	margin-top: 3%;
+}
+
+/*-----------------------------------------------------------------------
+
+ 								PC 
+ 								
+ ------------------------------------------------------------------------*/
+@media (min-width : 767.9999px) {
+
+#content {
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+#content h4 {
+    width: 55% !important;
+    margin: 5% 25%;
+}
+
+#join_table {
+	width: 50%;
+	margin: 0 auto;
+}
+
+#join_table tr td > label {
+	float: left;
+}
+
+#join_table input {
+	
+	width: 100%;
+}
+
+#join_table input#id {
+	width: 75% !important;
+}
+
+#join_table #idChk {
+	border: none;
+	border-radius: 5%;
+	background-color: brown;
+	color: #fff;
+}
+
+#join_table input#year{
+	width: 30%;
+}
+
+#join_table #gender {
+	width: 100%;
+}
+
+.table_btn {
+	text-align: center;
+	margin: 5% 0;
+}
+
+.table_btn button {
+	margin: 0 3%;
+	width: 20%;
+}
+
+.table_btn .insert {
+	background-color: brown;
+	color: #fff;
+	border: none;
+	border-radius: 5%;
+}
+
+.table_btn .list {
+	background-color: orange;
+	color: #fff;
+	border: none;
+	border-radius: 5%;
+}
+
+}
+
+/*-----------------------------------------------------------------------
+
+ 								tablet 
+ 								
+ ------------------------------------------------------------------------*/
+@media (max-width : 767.9998px) {
+
+#content {
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+#content h4 {
+    width: 80% !important;
+    margin: 5% 15%;
+}
+
+#join_table {
+	width: 70%;
+	margin: 0 auto;
+}
+
+#join_table tr td > label {
+	float: left;
+}
+
+#join_table input {
+	
+	width: 100%;
+}
+
+#join_table input#id {
+	width: 70% !important;
+}
+
+#join_table #idChk {
+	border: none;
+	border-radius: 5%;
+	background-color: brown;
+	color: #fff;
+}
+
+#join_table input#year{
+	width: 30%;
+}
+
+#join_table #gender {
+	width: 100%;
+}
+
+.table_btn {
+	text-align: center;
+	margin: 5% 0;
+}
+
+.table_btn button {
+	margin: 0 3%;
+	width: 30%;
+}
+
+.table_btn .insert {
+	background-color: brown;
+	color: #fff;
+	border: none;
+	border-radius: 5%;
+}
+
+.table_btn .list {
+	background-color: orange;
+	color: #fff;
+	border: none;
+	border-radius: 5%;
+}
+
+}
+/*-----------------------------------------------------------------------
+
+ 								mobile 
+ 								
+ ------------------------------------------------------------------------*/
+@media (max-width : 425.9998px) {
+
+#content {
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#content h4 {
+    width: 100% !important;
+    margin: 5% 0;
+}
+
+#join_table {
+	width: 100%;
+	margin: 0 auto;
+}
+
+#join_table tr td > label {
+	float: left;
+}
+
+#join_table input {
+	
+	width: 100%;
+}
+
+#join_table input#id {
+	width: 70% !important;
+}
+
+#join_table #idChk {
+	border: none;
+	border-radius: 5%;
+	background-color: brown;
+	color: #fff;
+}
+
+#join_table input#year{
+	width: 30%;
+}
+
+#join_table #gender {
+	width: 100%;
+}
+
+.table_btn {
+	text-align: center;
+	margin: 5% 0;
+}
+
+.table_btn button {
+	margin: 0 3%;
+	width: 40%;
+}
+
+.table_btn .insert {
+	background-color: brown;
+	color: #fff;
+	border: none;
+	border-radius: 5%;
+}
+
+.table_btn .list {
+	background-color: orange;
+	color: #fff;
+	border: none;
+	border-radius: 5%;
+}
+
+}

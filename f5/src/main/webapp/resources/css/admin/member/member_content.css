@@ -1,0 +1,348 @@
+@charset "UTF-8";
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+/* thead, */
+/* tbody, */
+/* tfoot, */
+/* tr, */
+/* td, */
+/* th{ */
+/* 	border-width:1px !important; */
+/* 	text-align: center; */
+/* } */
+
+#postcode {
+	width: 30% !important;
+}
+
+.addr_btn {
+	width: 40% !important;
+	background-color: brown;
+	color: #fff;
+	border: none;
+	border-radius: 5%;
+}
+
+#address {
+	width: 100% !important;
+}
+
+#detailAddress {
+	width: 60% !important;
+}
+
+#extraAddress {
+	width: 35% !important;
+}
+
+/*-----------------------------------------------------------------------
+
+ 								PC 
+ 								
+ ------------------------------------------------------------------------*/
+@media (min-width : 767.9999px) {
+
+#content {
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+#content h4 {
+    width: 45% !important;
+    margin: 5% 15%;
+}
+
+#content_table {
+	width: 50%;
+	margin: 0 auto;
+}
+
+#content_table tr td > label {
+	float: left;
+}
+
+#content_table input {
+	width: 100%;
+}
+
+#content_table input#year {
+	width: 30%;
+}
+
+#content_table #gender {
+	width: 100%;
+}
+#content_table {
+	width: 50%;
+	margin: 0 auto;
+}
+
+#content_table tr, #join_table td {
+	border-style: none;
+}
+
+#content_table input {
+	
+	width: 100%;
+}
+
+#join_table input#id {
+	width: 75% !important;
+}
+
+#join_table #idChk {
+	border: none;
+	border-radius: 5%;
+	background-color: brown;
+	color: #fff;
+}
+
+#content_table input#year{
+	width: 30%;
+}
+
+#content_table #gender {
+	width: 100%;
+}
+
+.table_btn {
+	text-align: center;
+	margin: 5% 0;
+}
+
+.table_btn button {
+	margin: 0 3%;
+	width: 10%;
+}
+
+.table_btn .update {
+	background-color: brown;
+	color: #fff;
+	border: none;
+	border-radius: 5%;
+}
+
+.table_btn .delete {
+	background-color: oldlace;
+	color: orange;
+	border: none;
+	border-radius: 5%;
+}
+
+.table_btn .list {
+	background-color: orange;
+	color: #fff;
+	border: none;
+	border-radius: 5%;
+}
+
+}
+
+/*-----------------------------------------------------------------------
+
+ 								tablet 
+ 								
+ ------------------------------------------------------------------------*/
+@media (max-width : 767.9998px) {
+
+#content {
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+#content h4 {
+    width: 55% !important;
+    margin: 5% 15%;
+}
+
+#content_table {
+	width: 50%;
+	margin: 0 auto;
+}
+
+#content_table tr td > label {
+	float: left;
+}
+
+#content_table input {
+	width: 100%;
+}
+
+#join_table input#id {
+	width: 70% !important;
+}
+
+#join_table #idChk {
+	border: none;
+	border-radius: 5%;
+	background-color: brown;
+	color: #fff;
+}
+#content_table input#year {
+	width: 30%;
+}
+
+#content_table #gender {
+	width: 100%;
+}
+#content_table {
+	width: 70%;
+	margin: 0 auto;
+}
+
+#content_table tr, #join_table td {
+	border-style: none;
+}
+
+#content_table input {
+	
+	width: 100%;
+}
+
+#content_table input#year{
+	width: 30%;
+}
+
+#content_table #gender {
+	width: 100%;
+}
+
+.table_btn {
+	text-align: center;
+	margin: 5% 0;
+}
+
+.table_btn button {
+	margin: 0 3%;
+	width: 15%;
+}
+
+.table_btn .update {
+	background-color: brown;
+	color: #fff;
+	border: none;
+	border-radius: 5%;
+}
+
+.table_btn .delete {
+	background-color: oldlace;
+	color: orange;
+	border: none;
+	border-radius: 5%;
+}
+
+.table_btn .list {
+	background-color: orange;
+	color: #fff;
+	border: none;
+	border-radius: 5%;
+}
+
+}
+/*-----------------------------------------------------------------------
+
+ 								mobile 
+ 								
+ ------------------------------------------------------------------------*/
+@media (max-width : 425.9998px) {
+
+#content {
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+#content h4 {
+    width: 100% !important;
+    margin: 5% 0;
+    font-size: 1em;
+    font-weight: bolder;
+}
+
+#content_table {
+	width: 100%;
+	margin: 0 auto;
+}
+
+#content_table tr td > label {
+	float: left;
+}
+
+#content_table input {
+	width: 100%;
+}
+
+#join_table input#id {
+	width: 70% !important;
+}
+
+#join_table #idChk {
+	border: none;
+	border-radius: 5%;
+	background-color: brown;
+	color: #fff;
+}
+
+#content_table input#year {
+	width: 30%;
+}
+
+#content_table #gender {
+	width: 100%;
+}
+
+#content_table tr, #join_table td {
+	border-style: none;
+}
+
+#content_table input {
+	
+	width: 100%;
+}
+
+#content_table input#year{
+	width: 30%;
+}
+
+#content_table #gender {
+	width: 100%;
+}
+
+.table_btn {
+	text-align: center;
+	margin: 5% 0;
+}
+
+.table_btn button {
+	margin: 0 3%;
+	width: 25%;
+}
+
+.table_btn .update {
+	background-color: brown;
+	color: #fff;
+	border: none;
+	border-radius: 5%;
+}
+
+.table_btn .delete {
+	background-color: oldlace;
+	color: orange;
+	border: none;
+	border-radius: 5%;
+}
+
+.table_btn .list {
+	background-color: orange;
+	color: #fff;
+	border: none;
+	border-radius: 5%;
+}
+
+}

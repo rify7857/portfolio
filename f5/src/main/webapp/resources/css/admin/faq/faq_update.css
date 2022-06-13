@@ -1,0 +1,194 @@
+@charset "UTF-8";
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+/* thead, */
+/* tbody, */
+/* tfoot, */
+/* tr, */
+/* td, */
+/* th{ */
+/* 	text-align: center; */
+/* } */
+
+/*-----------------------------------------------------------------------
+
+ 								PC 
+ 								
+ ------------------------------------------------------------------------*/
+@media (min-width : 767.9999px) {
+
+#content {
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+#content h4 {
+    width: 25%;
+    margin: 5% 10%;
+}
+
+#content > .faq_table {
+	margin: 0 auto;
+	width: 80%;
+}
+
+.faq_table label {
+	float: left;
+}
+
+.faq_table input {
+	width: 100%;
+}
+
+#content .faq_answer {
+	width: 100%;
+	resize: none;
+	height: 100%;
+}
+
+#content form > .faq_btn {
+	text-align: center;
+	margin: 5% 0;
+}
+
+.faq_btn button {
+	width: 30%;
+	margin: 0 5%;
+}
+
+.faq_btn .faq_update {
+	border: none;
+	border-radius: 5%;
+	background-color: brown;
+	color: #fff;
+}
+
+.faq_btn .faq_list {
+	border: none;
+	border-radius: 5%;
+	background-color: orange;
+	color: #fff;
+}
+
+}
+
+/*-----------------------------------------------------------------------
+
+ 								tablet 
+ 								
+ ------------------------------------------------------------------------*/
+@media (max-width : 767.9998px) {
+
+#content {
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+#content h4 {
+    width: 55% !important;
+    margin: 5% 10%;
+}
+
+#content > .faq_table {
+	margin: 0 auto;
+	width: 80%;
+}
+
+#content input.faq_title {
+	width: 100%;
+}
+
+#content .faq_answer {
+	width: 100%;
+	resize: none;
+	height: 100%;
+}
+
+#content form > .faq_btn {
+	text-align: center;
+	margin: 5% 0;
+}
+
+.faq_btn button {
+	margin: 0 5%;
+	width: 30%;
+}
+
+.faq_btn .faq_update {
+	border: none;
+	border-radius: 5%;
+	background-color: brown;
+	color: #fff;
+}
+
+.faq_btn .faq_list {
+	border: none;
+	border-radius: 5%;
+	background-color: orange;
+	color: #fff;
+}
+
+}
+/*-----------------------------------------------------------------------
+
+ 								mobile 
+ 								
+ ------------------------------------------------------------------------*/
+@media (max-width : 425.9998px) {
+
+#content {
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#content h4 {
+    width: 70% !important;
+    margin: 5% 10%;
+}
+
+#content > .faq_table {
+	margin: 0 auto;
+	width: 100%;
+}
+
+#content input.faq_title {
+	width: 100%;
+}
+
+#content .faq_answer {
+	width: 100%;
+	resize: none;
+	height: 100%;
+}
+
+#content form > .faq_btn {
+	text-align: center;
+	margin: 5% 0;
+}
+
+.faq_btn button {
+	margin: 0 5%;
+	width: 30%;
+}
+
+.faq_btn .faq_update {
+	border: none;
+	border-radius: 5%;
+	background-color: brown;
+	color: #fff;
+}
+
+.faq_btn .faq_list {
+	border: none;
+	border-radius: 5%;
+	background-color: orange;
+	color: #fff;
+}
+}

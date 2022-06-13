@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="mapper.adminnotice">
+	
+	<select id="count" resultType="int">
+		select count(*) from board where boardCategory = '공지'
+	</select>
+	
+	<select id="searchCount" resultType="int" parameterType="java.lang.String">
+		select count(*)
+		from
+			board
+			<choose>
+				<when test='search_type == "t"'>
+					where
+						boardTitle like '%'||#{search}||'%'
+					and
+						boardCategory = '공지'
+				</when>
+				<when test='search_type == "c"'>
+					where
+						boardContent like '%'||#{search}||'%'
+					and
+						boardCategory = '공지'
+				</when>
+				<when test='search_type == "tc"'>
+					where
+					(
+						boardTitle like '%'||#{search}||'%'
+					or
+						boardContent like '%'||#{search}||'%'
+					)
+					and
+						boardCategory = '공지'
+				</when>
+				<when test='search_type == "n"'>
+					where
+						memberId like '%'||#{search}||'%'
+					and
+						boardCategory = '공지'
+				</when>
+				<otherwise>
+					where boardCategory = '공지'
+				</otherwise>
+			</choose>
+	</select>
+	
+	<select id="list" parameterType="map" resultType="com.web.f5.vo.AdminNoticeVO">
+		select rno, boardIdx, memberId, boardTitle, boardContent, boardHits, boardDate, boardCategory
+		from
+			(select rownum rno, boardIdx, memberId, boardTitle, boardContent, boardHits, to_char(boardDate,'yyyy-mm-dd') boardDate, boardCategory
+		from
+			(select boardIdx, memberId, boardTitle, boardContent, boardHits, boardDate, boardCategory from board order by boardDate desc)
+		where
+			<choose>
+				<when test='search_type == "t"'>
+					(boardTitle like '%'||#{search}||'%')
+					and boardCategory = '공지'
+				</when>
+				<when test='search_type == "c"'>
+					(boardContent like '%'||#{search}||'%')
+					and boardCategory = '공지'
+				</when>
+				<when test='search_type == "tc"'>
+					(
+						boardTitle like '%'||#{search}||'%'
+					or
+						boardContent like '%'||#{search}||'%'
+					)
+					and boardCategory = '공지'
+				</when>
+				<when test='search_type == "n"'>
+					(memberId like '%'||#{search}||'%')
+					and boardCategory = '공지'
+				</when>
+				<otherwise>
+					boardCategory = '공지'
+				</otherwise>
+			</choose>
+			)
+		where
+			rno between #{start} and #{end}
+	</select>
+	
+	<select id="searchList" parameterType="map" resultType="com.web.f5.vo.AdminNoticeVO">
+		select rno, boardIdx, memberId, boardTitle, boardContent, boardHits, boardDate, boardCategory
+		from
+			(select rownum rno, boardIdx, memberId, boardTitle, boardContent, boardHits, to_char(boardDate,'yyyy-mm-dd') boardDate, boardCategory
+		from
+			(select boardIdx, memberId, boardTitle, boardContent, boardHits, boardDate, boardCategory from board order by boardDate desc)
+		where
+			<choose>
+				<when test='search_type == "t"'>
+					boardTitle like '%'||#{search}||'%'
+					and boardCategory = '공지'
+				</when>
+				<when test='search_type == "c"'>
+					boardContent like '%'||#{search}||'%'
+					and boardCategory = '공지'
+				</when>
+				<when test='search_type == "tc"'>
+					(
+						boardTitle like '%'||#{search}||'%'
+					or
+						boardContent like '%'||#{search}||'%'
+					)
+					and boardCategory = '공지'
+				</when>
+				<when test='search_type == "n"'>
+					memberId like '%'||#{search}||'%'
+					and boardCategory = '공지'
+				</when>
+				<otherwise>
+					boardCategory = '공지'
+				</otherwise>
+			</choose>
+			)
+		where
+			(rno between #{start} and #{end})
+	</select>
+	
+	<select id="getSearchJSONResult" parameterType="map" resultType="com.web.f5.vo.AdminNoticeVO">
+		select rno, boardIdx, memberId, boardTitle, boardContent, boardHits, boardDate, boardCategory
+		from
+			(select rownum rno, boardIdx, memberId, boardTitle, boardContent, boardHits, to_char(boardDate,'yyyy-mm-dd') boardDate, boardCategory
+		from
+			(select boardIdx, memberId, boardTitle, boardContent, boardHits, boardDate, boardCategory from board order by boardDate desc)
+		where
+			<choose>
+				<when test='search_type == "t"'>
+					boardTitle like '%'||#{search}||'%'
+					and boardCategory = '공지'
+				</when>
+				<when test='search_type == "c"'>
+					boardContent like '%'||#{search}||'%'
+					and boardCategory = '공지'
+				</when>
+				<when test='search_type == "tc"'>
+					(
+						boardTitle like '%'||#{search}||'%'
+					or
+						boardContent like '%'||#{search}||'%'
+					)
+					and boardCategory = '공지'
+				</when>
+				<when test='search_type == "n"'>
+					memberId like '%'||#{search}||'%'
+					and boardCategory = '공지'
+				</when>
+				<otherwise>
+					boardCategory = '공지'
+				</otherwise>
+			</choose>
+			)
+		where
+			(rno between #{start} and #{end})
+	</select>
+	
+	<select id="limitList" resultType="com.web.f5.vo.AdminNoticeVO">
+		select rno, boardIdx, memberId, boardTitle, boardContent, boardHits, boardDate, boardCategory
+		from
+			(select rownum rno, boardIdx, memberId, boardTitle, boardContent, boardHits, to_char(boardDate,'yyyy-mm-dd') boardDate, boardCategory
+		from
+			(select boardIdx, memberId, boardTitle, boardContent, boardHits, boardDate, boardCategory from board order by boardDate desc) where boardCategory = '공지')
+		where
+			 rno &lt; 4
+	</select>
+	
+	<select id="noticeContent" parameterType="java.lang.String" resultType="com.web.f5.vo.AdminNoticeVO">
+		select boardIdx, memberId, boardTitle, boardContent, boardHits, boardDate, boardCategory
+		from
+			board
+		where
+			boardIdx = #{boardIdx}
+	</select>
+	
+	<insert id="noticeInsert" parameterType="com.web.f5.vo.AdminNoticeVO">
+		insert into board
+		(
+			boardIdx,
+			memberId,
+			boardHits,
+			boardTitle,
+			boardContent,
+			boardDate,
+			boardUpdateDate,
+			boardCategory
+		)
+		values
+		(
+			'b_'||sequ_board.nextval,
+			#{memberId},
+			0,
+			#{boardTitle},
+			#{boardContent},
+			sysdate,
+			null,
+			'공지'
+		)
+	</insert>
+	
+	<update id="noticeUpdate" parameterType="com.web.f5.vo.AdminNoticeVO">
+		update board
+		set
+			boardTitle = #{boardTitle},
+			boardContent = #{boardContent},
+			boardUpdateDate = sysdate,
+			boardCategory = '공지'
+		where
+			boardIdx = #{boardIdx}
+	</update>
+	
+	<delete id="noticeDelete" parameterType="java.lang.String">
+		delete from board
+		where
+			boardIdx = #{boardIdx}
+	</delete>
+	
+</mapper>

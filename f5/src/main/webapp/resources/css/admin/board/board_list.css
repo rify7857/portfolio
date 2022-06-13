@@ -1,0 +1,183 @@
+@charset "UTF-8";
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	box-shadow: 5px 8px 6px #00000029;
+}
+
+thead,
+tbody,
+tfoot,
+tr,
+td,
+th{
+	text-align: center;
+}
+
+/*-----------------------------------------------------------------------
+
+ 								PC 
+ 								
+ ------------------------------------------------------------------------*/
+@media (min-width : 767.9999px) {
+
+#content {
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+#content h4 {
+    width: 55% !important;
+    margin: 5% 0;
+}
+
+#board_table th {
+	background-color: oldlace;
+}
+
+#board_table a {
+	text-decoration: none;
+	color: #000;
+}
+
+
+#content .search {
+	text-align: center;
+	margin: 5% auto;
+	width: 80%;
+}
+
+.search .search_text > .title {
+	text-align: center;
+	height: 30px;
+}
+
+.search_text .search_btn {
+	width: 10%;
+	height: 30px;
+	background-color: brown;
+	color: #fff;
+	border: none;
+	border-radius: 5%;
+}
+
+.paging {
+	text-align: center;
+	margin: 5% 0;
+}
+
+}
+
+/*-----------------------------------------------------------------------
+
+ 								tablet 
+ 								
+ ------------------------------------------------------------------------*/
+@media (max-width : 767.9998px) {
+
+#content {
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+#content h4 {
+    width: 90% !important;
+    margin: 5% 0;
+}
+
+#board_table th {
+	background-color: oldlace;
+}
+
+#board_table a {
+	text-decoration: none;
+	color: #000;
+}
+
+#content .search {
+	text-align: center;
+	margin: 5% auto;
+	width: 80%;
+}
+
+.search .search_text > .title {
+	text-align: center;
+	height: 30px;
+}
+
+.search_text .search_btn {
+	width: 20%;
+	height: 30px;
+	background-color: brown;
+	color: #fff;
+	border: none;
+	border-radius: 5%;
+}
+
+.paging {
+	text-align: center;
+	margin: 5% 0;
+}
+
+}
+/*-----------------------------------------------------------------------
+
+ 								mobile 
+ 								
+ ------------------------------------------------------------------------*/
+@media (max-width : 425.9998px) {
+
+#content {
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#content h4 {
+	width: 90% !important;
+    margin: 5% 0;
+    font-size: 1.2em;
+}
+
+#board_table th {
+	background-color: oldlace;
+}
+
+#board_table a {
+	text-decoration: none;
+	color: #000;
+}
+
+#board_table {
+	font-size: 10px;
+}
+
+#content .search {
+	text-align: center;
+	margin: 5% auto;
+	width: 100%;
+}
+
+.search .search_text > .title {
+	text-align: center;
+	height: 30px;
+}
+
+.search_text .search_btn {
+	width: 20%;
+	height: 30px;
+	background-color: brown;
+	color: #fff;
+	border: none;
+	border-radius: 5%;
+}
+
+.paging {
+	text-align: center;
+	margin: 5% 0;
+}
+
+}

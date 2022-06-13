@@ -1,0 +1,273 @@
+@charset "UTF-8";
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+/* thead, */
+/* tbody, */
+/* tfoot, */
+/* tr, */
+/* td, */
+/* th{ */
+/* 	border-width:1px !important; */
+/* 	text-align: center; */
+/* } */
+
+#postcode {
+	width: 30% !important;
+}
+
+.addr_btn {
+	width: 40% !important;
+	background-color: brown;
+	color: #fff;
+	border: none;
+	border-radius: 5%;
+}
+
+#address {
+	width: 100% !important;
+}
+
+#detailAddress {
+	width: 60% !important;
+}
+
+#extraAddress {
+	width: 35% !important;
+}
+
+/*-----------------------------------------------------------------------
+
+ 								PC 
+ 								
+ ------------------------------------------------------------------------*/
+@media (min-width : 767.9999px) {
+
+#content {
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+#content h4 {
+    width: 35% !important;
+    margin: 5% 15%;
+}
+
+#member_update_table {
+	width: 50%;
+	margin: 0 auto;
+}
+
+#member_update_table tr td > label {
+	float: left;
+}
+
+#member_update_table input {
+	width: 100%;
+}
+
+#member_update_table input#id {
+	width: 75% !important;
+}
+
+#member_update_table #idChk {
+	border: none;
+	border-radius: 5%;
+	background-color: brown;
+	color: #fff;
+}
+
+#member_update_table input#year {
+	width: 30%;
+}
+
+#member_update_table #gender {
+	width: 100%;
+}
+
+.table_btn {
+	text-align: center;
+	margin: 5% 0;
+}
+
+.table_btn button {
+	margin: 0 3%;
+	width: 20%;
+}
+
+.table_btn .update {
+	background-color: brown;
+	color: #fff;
+	border: none;
+	border-radius: 5%;
+}
+
+.table_btn .list {
+	background-color: orange;
+	color: #fff;
+	border: none;
+	border-radius: 5%;
+}
+
+}
+
+/*-----------------------------------------------------------------------
+
+ 								tablet 
+ 								
+ ------------------------------------------------------------------------*/
+@media (max-width : 767.9998px) {
+
+#content {
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+#content h4 {
+	border-bottom: 1px solid;
+    width: 45% !important;
+    margin-bottom: 5%;
+}
+
+#member_update_table {
+	width: 80%;
+	margin: 0 auto;
+}
+
+#member_update_table tr td > label {
+	float: left;
+}
+
+#member_update_table input {
+	width: 100%;
+}
+
+#member_update_table input#id {
+	width: 70% !important;
+}
+
+#member_update_table #idChk {
+	border: none;
+	border-radius: 5%;
+	background-color: brown;
+	color: #fff;
+}
+
+#member_update_table input#year {
+	width: 30%;
+}
+
+#member_update_table #gender {
+	width: 100%;
+}
+
+.table_btn {
+	text-align: center;
+	margin: 5% 0;
+}
+
+.table_btn button {
+	margin: 0 3%;
+	width: 30%;
+}
+
+.table_btn .insert {
+	background-color: brown;
+	color: #fff;
+	border: none;
+	border-radius: 5%;
+}
+
+.table_btn .list {
+	background-color: orange;
+	color: #fff;
+	border: none;
+	border-radius: 5%;
+}
+
+}
+/*-----------------------------------------------------------------------
+
+ 								mobile 
+ 								
+ ------------------------------------------------------------------------*/
+@media (max-width : 425.9998px) {
+
+#content {
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#content h4 {
+	border-bottom: 1px solid;
+    width: 75% !important;
+    margin-bottom: 5%;
+}
+
+#member_update_table {
+	width: 80%;
+	margin: 0 auto;
+}
+
+#member_update_table tr td > label {
+	float: left;
+}
+
+#member_update_table input {
+	width: 100%;
+}
+
+#member_update_table input#id {
+	width: 70% !important;
+}
+
+#member_update_table #idChk {
+	border: none;
+	border-radius: 5%;
+	background-color: brown;
+	color: #fff;
+}
+
+#member_update_table input#year {
+	width: 30%;
+}
+
+#member_update_table #gender {
+	width: 100%;
+}
+
+#member_table {
+	font-size: 10px;
+}
+
+.table_btn {
+	text-align: center;
+	margin: 5% 0;
+}
+
+.table_btn button {
+	margin: 0 3%;
+	width: 30%;
+}
+
+.table_btn .update {
+	background-color: brown;
+	color: #fff;
+	border: none;
+	border-radius: 5%;
+}
+
+.table_btn .list {
+	background-color: orange;
+	color: #fff;
+	border: none;
+	border-radius: 5%;
+}
+
+}

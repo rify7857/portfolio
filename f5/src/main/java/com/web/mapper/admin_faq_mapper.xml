@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="mapper.adminfaq">
+	
+	<select id="count" resultType="int">
+		select count(*) from faq
+	</select>
+	
+	<select id="searchCount" resultType="int" parameterType="java.lang.String">
+		select count(*)
+		from faq
+		where
+			<choose>
+				<when test='search_type == "t"'>
+					faqTitle like '%'||#{search}||'%'
+				</when>
+				<when test='search_type == "c"'>
+					faqContent like '%'||#{search}||'%'
+				</when>
+				<when test='search_type == "tc"'>
+					faqTitle like '%'||#{search}||'%'
+				or
+					faqContent like '%'||#{search}||'%'
+				</when>
+				<otherwise>
+				</otherwise>
+			</choose>
+	</select>
+	
+	<select id="list" parameterType="map" resultType="com.web.f5.vo.AdminFaqVO">
+		select rno, faqIdx, faqTitle, faqContent, faqDate
+		from
+			(select rownum rno, faqIdx, faqTitle, faqContent, to_char(faqDate, 'yy-mm-dd') faqDate
+		from
+			(select faqIdx, faqTitle, faqContent, faqDate from faq order by faqDate desc))
+		where
+			rno between #{start} and #{end}
+	</select>
+	
+	<select id="getSearchListResult" parameterType="map" resultType="com.web.f5.vo.AdminFaqVO">
+		select rno, faqIdx, faqTitle, faqContent, faqDate
+		from
+			(select rownum rno, faqIdx, faqTitle, faqContent, to_char(faqDate, 'yy-mm-dd') faqDate
+		from
+			(select faqIdx, faqTitle, faqContent, faqDate from faq order by faqDate desc)
+		where
+			<choose>
+				<when test='search_type == "t"'>
+					faqTitle like '%'||#{search}||'%'
+				</when>
+				<when test='search_type == "c"'>
+					faqContent like '%'||#{search}||'%'
+				</when>
+				<when test='search_type == "tc"'>
+					faqTitle like '%'||#{search}||'%'
+				or
+					faqContent like '%'||#{search}||'%'
+				</when>
+				<otherwise>
+				</otherwise>
+			</choose>
+			)
+		where
+			rno between #{start} and #{end}
+	</select>
+	
+	<select id="getSearchJSONResult" parameterType="map" resultType="com.web.f5.vo.AdminFaqVO">
+		select rno, faqIdx, faqTitle, faqContent, faqDate
+		from
+			(select rownum rno, faqIdx, faqTitle, faqContent, to_char(faqDate, 'yy-mm-dd') faqDate
+		from
+			(select faqIdx, faqTitle, faqContent, faqDate from faq order by faqDate desc)
+		where
+			<choose>
+				<when test='search_type == "t"'>
+					faqTitle like '%'||#{search}||'%'
+				</when>
+				<when test='search_type == "c"'>
+					faqContent like '%'||#{search}||'%'
+				</when>
+				<when test='search_type == "tc"'>
+					faqTitle like '%'||#{search}||'%'
+				or
+					faqContent like '%'||#{search}||'%'
+				</when>
+				<otherwise>
+				</otherwise>
+			</choose>
+			)
+		where
+			rno between #{start} and #{end}
+	</select>
+	
+	<select id="faqContent" parameterType="java.lang.String" resultType="com.web.f5.vo.AdminFaqVO">
+		select faqIdx, faqTitle, faqContent, to_char(faqDate, 'yyyy-mm-dd') faqDate
+		from
+			faq
+		where
+			faqIdx = #{faqIdx}
+	</select>
+	
+	<insert id="faqInsert" parameterType="com.web.f5.vo.AdminFaqVO">
+		insert into faq
+		(
+			faqIdx,
+			faqTitle,
+			faqContent,
+			faqDate
+		)
+		values
+		(
+			'f_'||sequ_faq.nextval,
+			#{faqTitle},
+			#{faqContent},
+			sysdate
+		)
+	</insert>
+	
+	<update id="faqUpdate" parameterType="com.web.f5.vo.AdminFaqVO">
+		update faq
+		set
+			faqTitle = #{faqTitle},
+			faqContent = #{faqContent},
+			faqUpdateDate = sysdate
+		where
+			faqIdx = #{faqIdx}
+	</update>
+	
+	<delete id="faqDelete" parameterType="java.lang.String">
+		delete from faq
+		where
+			faqIdx = #{faqIdx}
+	</delete>
+	
+</mapper>

@@ -1,0 +1,473 @@
+@charset "UTF-8";
+
+.list-table a,.reply-member a {
+	color: black !important;
+	text-decoration: none !important;
+}
+
+.board_update_link {
+	color: black !important;
+	text-decoration: none !important;
+}
+
+/* board_list */
+
+
+.table-top-container {
+	margin: 5px 5px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.table-top-container select {
+	width: 80px;
+	height: 30px;
+}
+
+.btn-board-write {
+	width: 100px;
+	height: 35px;
+}
+
+.table th, td{
+	vertical-align: middle;
+}
+
+.board-caption {
+	font-size: 3em;
+	color: orange;
+	font-weight: bold;
+	margin: 10px;
+}
+
+.cusbtn {
+	background-color: orange;
+	font-weight: bold;
+	border-radius: 3px;
+	color: white;
+	border: 0;
+}
+.cusbtn1 {
+	background-color: brown;
+	font-weight: bold;
+	border-radius: 3px;
+	color: white;
+	border: 0;
+	font-size: 18px;
+	width: 8%;
+	
+
+}
+
+.cusbtn:hover {
+	background-color: brown;
+	transition: 0.3s;
+}
+.cusbtn1:hover {
+	background-color: orange;
+	transition: 0.3s;
+}
+
+.tr-sec1 {
+	background-color: orange;
+}
+
+
+.tr-sec td:nth-child(2) {
+	background-color: inherit;
+	text-align: left;
+}
+
+.list-table {
+	width: 100%;
+	 margin-bottom: 1rem;
+	color: #212529;
+	vertical-align: top;
+	border-color: #dee2e6;
+	text-align: center;
+}
+
+.table tr:nth-last-child(2) {
+	border-bottom-width: inherit;
+	border: 0px solid white;
+}
+
+.table tr:nth-last-child(3) {
+	border-bottom-width: inherit;
+	border: 0px solid white;
+}
+
+
+.board-table-col1 {
+	width: 15%;
+}
+.board-table-col2 {
+	width: 50%;
+}
+.board-table-col3 {
+	width: 15%;
+}
+.board-table-col4 {
+	width: 7%;
+}
+.board-table-col5 {
+	width: 15%;
+}
+
+.search {
+	border-radius: 3px;
+	width: 25%;
+}
+
+
+
+
+/* board_write */
+.board-write-container {
+	position: relative;
+	width: 70%;
+	background-color: orange;
+	text-align: center;
+	border-radius: 5px;
+	padding: 20px 0;
+	margin: auto;
+	
+}
+
+.board-write-btn-container {
+	text-align: center;
+	padding: 20px 0;
+}
+
+.write-table {
+	width: 80%;
+	margin: auto;
+	padding-top: 20px;
+	background-color: orange;
+	text-align: left;
+}
+
+.write-table td, th {
+	margin-left: 10%;
+}
+
+
+.label{
+	font-size: 15pt;
+	color: white;
+}
+
+.title {
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+.content {
+	width: 100%;
+	resize: none;
+	overflow: hidden;
+	height: 100px;
+	margin-bottom: 10px;
+}
+
+.file-table {
+	width: 80%;
+	margin: auto;
+	background-color: white;
+	text-align: center;
+}
+
+.file-table td {
+	width: 20%;
+	height: 50px;
+}
+
+
+
+/* boardContent */
+.board-content-container {
+	margin-top: 30px;
+	width: 100%;
+	
+}
+
+.content-title-div {
+	background-color: orange;
+}
+
+.content-title {
+	font-weight: bold;
+	font-size: 20pt;
+	border-top: 1px solid rgba(0,0,0,0.5);
+	border-bottom: 1px solid rgba(0,0,0,0.3);
+	padding: 5px 0;
+}
+
+.board-content {
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+	text-align: center;
+	padding: 40px 0;
+}
+
+.board-content > p {
+	margin: 0 auto 20px;
+}
+
+.board-content img {
+	width: 80%;
+}
+
+.board-info {
+	text-align: center;
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.board-info form {
+	text-align: right;
+}
+
+.board-info dl {
+	display: inline-block;
+	margin-right: 5px;
+}
+
+.board-info dl > * {
+	display: inline-block;
+}
+
+.board-info dl dd {
+	padding-right: 5px;
+	border-right: 1px solid black;
+}
+
+.board-reply-container {
+	margin: 0 auto;
+	width: 100%;
+	
+}
+
+.reply-area {
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+
+.board-reply-head {
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.board-reply-head dl > * {
+	display: inline-block;
+}
+
+
+.reply-write-area {
+	margin: 20px auto;
+	width: 90%;
+	border: 1px solid rgba(0,0,0,0.5);
+	border-radius: 5px;
+}
+
+.reply-member {
+	padding: 5px 0 5px 5px;
+	font-size: 15pt;
+	font-weight: bold;
+	display: flex;
+	justify-content: space-between;
+}
+
+.reply-member form {
+	display: inline-block;
+}
+
+.reply-member button {
+	font-size: 12pt;
+}
+
+.reply-content-container {
+	margin: 5px 0 10px 0;
+	text-align: center;
+}
+
+.reply-content {
+	width: 80%;
+	height: 80px;
+	resize: none;
+	padding: 5px 2px;
+}
+
+.reply-btn-container {
+	text-align: right;
+	margin-right: 10%;
+	margin-bottom: 10px;
+}
+
+.reply-content-div {
+	margin: 10px 0;
+	padding: 0 5px;
+}
+
+
+
+.reply-etc dl {
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.reply-etc dl > * {
+	display: inline-block;
+	color: rgba(0,0,0,0.5);
+}
+
+.board-content-container button {
+	border: 0;
+	border-radius: 5px;
+	
+}
+
+
+.reply-re-write-area {
+	width: 70%;
+	margin: 10px 5% 20px;
+	border: 1px solid rgba(0,0,0,0.5);
+	display: none;
+}
+
+
+.content-delete {
+	background: white !important;
+}
+
+
+.board-content-container button:hover {
+	background-color: rgba(0,0,0,0.1);
+	transition: 0.3s;
+	
+}
+
+.reply-update {
+	display: none;
+}
+
+
+
+
+.page-container {
+	margin: 20px auto;
+	text-align: center;
+}
+
+.board-info dd:nth-last-child(1){
+	border-right: 0;
+}
+
+
+.comment_info label {
+	display: block !important;
+	font-size: 1.5em;
+	margin-bottom: 5px;
+}
+
+.reply_content {
+	width: 80%;
+	height: 80px;
+	resize: none;
+}
+
+.comment_enter {
+	float: right;
+    height: 80px;
+	width: 20%;
+	border: none;
+	border-radius: 5%;
+	background-color: orange;
+	color: #fff;
+}
+
+
+.reply_update_form {
+		display: none;
+}
+
+@media (max-width:992px) {
+	.table {
+	 font-size: 0.7%;
+	}
+	.btn-board-write {
+		width: 80px;
+		height: 30px;
+	}
+	.table-top-container select {
+		height: 30px;
+	}
+	
+}
+
+
+
+@media screen and (min-width: 425px) and (max-width:768px) {
+	
+	.btn-board-write {
+		width: 60px;
+		height: 25px;
+		font-size: 8pt;
+	}
+	.table-top-container select {
+		width: 60px;
+		font-size: 8pt;
+		height: 25px;
+	}
+	.board-table-col1 {
+		width: 10%;
+	}
+	.board-table-col2 {
+		width: 45%;
+	}
+	.board-table-col3 {
+		width: 15%;
+	}
+	.board-table-col4 {
+		width: 15%;
+	}
+	.board-table-col5 {
+		width: 15%;
+	}
+	.board-caption {
+	font-size: 2em;
+	}
+}
+
+@media screen and (min-width: 250px) and (max-width:425px) {
+	
+	.btn-board-write {
+		width: 60px;
+		height: 25px;
+		font-size: 8pt;
+	}
+	.table-top-container select {
+		width: 60px;
+		font-size: 8pt;
+		height: 25px;
+	}
+	.board-table-col1 {
+		width: 10%;
+	}
+	.board-table-col2 {
+		width: 45%;
+	}
+	.board-table-col3 {
+		width: 15%;
+	}
+	.board-table-col4 {
+		width: 15%;
+	}
+	.board-table-col5 {
+		width: 15%;
+	}
+	.board-caption {
+	font-size: 1.5em;
+	}
+	
+}
+
+
+

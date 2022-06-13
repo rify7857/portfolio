@@ -1,0 +1,267 @@
+@charset "UTF-8";
+
+table {
+	border: 1px solid;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+thead,
+tbody,
+tfoot,
+tr,
+td,
+th{
+	border-width:1px !important;
+	text-align: center;
+}
+
+#content h4 {
+	margin-bottom: 5%;
+}
+
+section {
+	display: flex;
+}
+
+.mb-4 {
+	margin-bottom: 0 !important;
+}
+/*-----------------------------------------------------------------------
+
+ 								PC 
+ 								
+ ------------------------------------------------------------------------*/
+@media (min-width : 767.9999px) {
+
+#content {
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.image {
+	border: 1px solid;
+    width: 40%;
+    height: 400px;
+    float: left;
+    margin-right: 5%;
+	border-radius: 25px;
+
+}
+
+.site_info {
+	float: right;
+    width: 55%;
+}
+#hea{
+	font-weight: bold;
+	color: brown;
+}
+
+}
+
+/*-----------------------------------------------------------------------
+
+ 								tablet 
+ 								
+ ------------------------------------------------------------------------*/
+@media (max-width : 767.9998px) {
+
+#content {
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.image {
+	border: 1px solid;
+    width: 40%;
+    height: 370px;
+    float: left;
+    margin-right: 5%;
+	border-radius: 25px;
+}
+
+.site_info {
+	float: right;
+    width: 55%;
+    font-size: 0.85em;
+}
+#hea{
+	font-weight: bold;
+	color: brown;
+}	
+}
+/*-----------------------------------------------------------------------
+
+ 								mobile 
+ 								
+ ------------------------------------------------------------------------*/
+@media (max-width : 425.9998px) {
+
+#content {
+    height: 100%;
+    width: 100%;
+}
+
+.image {
+	border: 1px solid;
+    width: 100%;
+    height: 300px;
+    margin-right: 5%;
+	border-radius: 25px;
+}
+
+.site_info {
+	float: right;
+    width: 100%;
+}
+
+}
+
+
+.head-nav-container {
+   position: relative;
+   background-color: rgb(255,187,0);
+   height: 80px; 
+   text-align: center;
+   vertical-align: middle;
+   margin-bottom: 50px;
+}
+
+.head-nav-title {
+   position: relative;
+   color: brown;
+   font-size: 15pt;
+   font-weight: bold;
+   top: 5px;
+}
+
+.head-nav-inner {
+   display: inline-block;
+   width: 100%;
+   height: 50%;
+   position: absolute;
+   bottom: 0px;
+   left: 0px;
+   
+} 
+
+.nav-col-ul {
+   display: inline-block;
+   margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  height: 100%;
+  vertical-align: middle;
+   
+}
+
+.nav-col-ul li{
+   width: calc(80%/5);
+   position: relative;
+   float: left;
+   display: inline-block;
+   text-align: center;
+   font-size: 15pt;
+   font-weight: bold;
+   height: 100%;
+   vertical-align: middle;
+}
+
+
+
+.nav-col-ul li:hover {
+   background: brown;
+   transition: 0.3s;
+    border-radius: 10px;
+   
+}
+
+.nav-col-ul li a {
+   vertical-align: middle;
+   text-decoration: none;
+   color: white;
+}
+#hea{
+	font-weight: bold;
+	color: brown;
+}
+
+
+@media screen and (min-width: 768px) and (max-width:992px) {
+   
+   
+   .board-caption {
+   font-size: 2em;
+   }
+
+}
+
+
+@media (max-width:992px) {
+   .table {
+    font-size: 0.7%;
+   }
+}
+
+@media screen and (min-width: 425px) and (max-width:768px) {
+   .board-caption {
+   font-size: 1.5em;
+   }
+   
+   .nav-col-ul li {
+      width: calc(80%/4);
+      font-size: 12pt;
+   }
+   
+   .nav-col-ul li:nth-last-child(1) {
+   display: none;
+   }
+   
+   .btn-board_write {
+      width: 60px;
+      height: 25px;
+      
+   }
+   #hea{
+	font-weight: bold;
+	color: brown;
+}
+}
+
+@media screen and (min-width: 250px) and (max-width:425px) {
+   .board-caption {
+   font-size: 1.5em;
+   }
+   
+   .nav-col-ul li {
+      width: calc(80%/3);
+      font-size: 11pt;
+   }
+   
+   .nav-col-ul li:nth-last-child(1) {
+   display: none;
+   }
+   .nav-col-ul li:nth-last-child(2) {
+   display: none;
+   }
+   .btn-board_write {
+      width: 60px;
+      height: 25px;
+      
+   }
+   #hea{
+	font-weight: bold;
+	color: brown;
+}
+   
+}

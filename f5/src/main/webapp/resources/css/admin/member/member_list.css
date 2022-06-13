@@ -1,0 +1,298 @@
+@charset "UTF-8";
+
+table {
+/* 	border: 1px solid; */
+	box-shadow: 5px 8px 6px #00000029;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+thead,
+tbody,
+tfoot,
+tr,
+td,
+th{
+/* 	border-width:1px !important; */
+	text-align: center;
+}
+
+.register {
+	margin-bottom: 3%;
+}
+
+/*-----------------------------------------------------------------------
+
+ 								PC 
+ 								
+ ------------------------------------------------------------------------*/
+@media (min-width : 767.9999px) {
+
+#content {
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+#content h4 {
+    width: 35% !important;
+    margin: 5% 0;
+}
+
+#member_table th {
+	background-color: oldlace;
+}
+
+#member_table a {
+	text-decoration: none;
+	color: #000;
+}
+
+.paging {
+	text-align: center;
+	margin: 5% 0;
+}
+
+.black_list {
+	border: none;
+	border-radius: 5%;
+	background-color: brown;
+	color: #fff;
+}
+
+.secession {
+	border: none;
+	border-radius: 5%;
+	background-color: brown;
+	color: #fff;
+}
+
+.closing {
+	border: none;
+	border-radius: 5%;
+	background-color: orange;
+	color: #fff;
+}
+
+.register {
+	float: right;
+}
+
+.register .register_btn {
+	border: none;
+	border-radius: 5%;
+	background-color: brown;
+	color: #fff;
+	margin-bottom: 2%;
+}
+
+#content .search {
+	text-align: center;
+	margin: 5% auto;
+	width: 100%;
+}
+
+.search .search_text > .title {
+	text-align: center;
+	height: 30px;
+}
+
+.search_text .search_btn {
+	width: 20%;
+	height: 30px;
+	background-color: brown;
+	color: #fff;
+	border: none;
+	border-radius: 5%;
+}
+
+}
+
+/*-----------------------------------------------------------------------
+
+ 								tablet 
+ 								
+ ------------------------------------------------------------------------*/
+@media (max-width : 767.9998px) {
+
+#content {
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+#content h4 {
+    width: 45% !important;
+    margin: 5% 0;
+}
+
+#member_table {
+	width: 90%;
+	font-size: 0.9em;
+}
+
+#member_table th {
+	background-color: oldlace;
+}
+
+#member_table a {
+	text-decoration: none;
+	color: #000;
+}
+
+.paging {
+	text-align: center;
+	margin: 5% 0;
+}
+
+.black_list {
+	border: none;
+	border-radius: 5%;
+	background-color: brown;
+	color: #fff;
+}
+
+.secession {
+	border: none;
+	border-radius: 5%;
+	background-color: brown;
+	color: #fff;
+}
+
+.closing {
+	border: none;
+	border-radius: 5%;
+	background-color: orange;
+	color: #fff;
+}
+
+.register {
+	float: right;
+	margin-right: 10%;
+}
+
+.register .register_btn {
+	border: none;
+	border-radius: 5%;
+	background-color: brown;
+	color: #fff;
+	margin-bottom: 2%;
+}
+
+#content .search {
+	text-align: center;
+	margin: 5% auto;
+	width: 100%;
+}
+
+.search .search_text > .title {
+	text-align: center;
+	height: 30px;
+}
+
+.search_text .search_btn {
+	width: 20%;
+	height: 30px;
+	background-color: brown;
+	color: #fff;
+	border: none;
+	border-radius: 5%;
+}
+
+}
+/*-----------------------------------------------------------------------
+
+ 								mobile 
+ 								
+ ------------------------------------------------------------------------*/
+@media (max-width : 425.9998px) {
+
+#content {
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#content h4 {
+    width: 45% !important;
+    margin: 5% 0;
+}
+
+#member_table {
+	width: 100%;
+	font-size: 0.9em;
+}
+
+#member_table th {
+	background-color: oldlace;
+}
+
+#member_table a {
+	text-decoration: none;
+	color: #000;
+}
+
+.paging {
+	text-align: center;
+	margin: 5% 0;
+}
+#member_table {
+	font-size: 10px;
+}
+
+.black_list {
+	border: none;
+	border-radius: 5%;
+	background-color: brown;
+	color: #fff;
+}
+
+.secession {
+	border: none;
+	border-radius: 5%;
+	background-color: brown;
+	color: #fff;
+}
+
+.closing {
+	border: none;
+	border-radius: 5%;
+	background-color: orange;
+	color: #fff;
+}
+
+.register {
+	float: right;
+	margin: 0;
+}
+
+.register .register_btn {
+	border: none;
+	border-radius: 5%;
+	background-color: brown;
+	color: #fff;
+	margin-bottom: 2%;
+	font-size: 10px;
+}
+
+#content .search {
+	text-align: center;
+	margin: 5% auto;
+	width: 100%;
+}
+
+.search .search_text > .title {
+	text-align: center;
+	height: 30px;
+}
+
+.search_text .search_btn {
+	width: 20%;
+	height: 30px;
+	background-color: brown;
+	color: #fff;
+	border: none;
+	border-radius: 5%;
+}
+
+}

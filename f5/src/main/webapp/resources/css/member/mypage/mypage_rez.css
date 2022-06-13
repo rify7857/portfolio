@@ -1,0 +1,119 @@
+@charset "UTF-8";
+/*-----------------------------------------------------------------------
+
+ 								PC 
+ 								
+ ------------------------------------------------------------------------*/
+@media ( min-width : 767.9999px) {
+	h2 {
+		color: brown;
+	}
+	.profile {
+		margin: 0 auto;
+		width: 100px;
+		padding: 10px;
+	}
+	.user-img {
+		background-color: gray;
+		width: 80px;
+		padding: 10px;
+		border-radius: 50%
+	}
+	.user-fix {
+		width: 80px;
+		font-size: 5px;
+		height: 20px;
+	}
+	.profile-h {
+		text-align: center;
+	}
+	.rez_container {
+		width: 50%;
+		margin: auto;
+	}
+	.store {
+		margin: auto;
+		display: flex;
+	}
+	.store_img {
+		width: 25%
+	}
+	.store_btn {
+		font-size: 80%;
+		margin: auto;
+		text-align: center;
+	}
+	.store_btn1 {
+		background-color: brown;
+		border-radius: 10%;
+		font-weight: bold;
+	}
+	.store_btn2 {
+		background-color: orange;
+		border-radius: 10%;
+		font-weight: bold;
+	}
+
+	/*--------------------------------------------------*/
+	#popup {
+		text-align: center;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, .7);
+		z-index: 1;
+	}
+	#popup.hide {
+		display: none;
+	}
+	#popup.has-filter {
+		backdrop-filter: blur(4px);
+		-webkit-backdrop-filter: blur(4px);
+	}
+	#popup .content {
+		width: 20%;
+		height: 30%;
+		padding: 20px;
+		background: #fff;
+		border-radius: 5px;
+		box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+		background-color: antiquewhite;
+	}
+	.pop_name {
+		color: brown;
+	}
+	.popup_btn1 {
+		border-radius: 10%;
+		height: 10%;
+		font-size: 35%;
+		background-color: brown;
+	}
+	.popup_btn2 {
+		border-radius: 10%;
+		height: 10%;
+		font-size: 35%;
+		background-color: orange;
+	}
+	.rez-sel {
+		width: 65%;
+	}
+}
+/*-----------------------------------------------------------------------
+
+ 								tablet 
+ 								
+ ------------------------------------------------------------------------*/
+@media ( max-width : 767.9998px) {
+}
+/*-----------------------------------------------------------------------
+
+ 								mobile 
+ 								
+ ------------------------------------------------------------------------*/
+@media ( max-width : 425.9998px) {
+}

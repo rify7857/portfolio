@@ -1,0 +1,275 @@
+@charset "UTF-8";
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+/* thead, */
+/* tbody, */
+/* tfoot, */
+/* tr, */
+/* td, */
+/* th{ */
+/* 	text-align: center; */
+/* } */
+
+
+
+
+
+/*-----------------------------------------------------------------------
+
+ 								PC 
+ 								
+ ------------------------------------------------------------------------*/
+
+
+	#content {
+	    height: 100%;
+	    width: 80%;
+	    margin: 0 auto;
+	    background-color: orange;
+	    border-radius: 10px;
+	    
+	}
+	
+	#content h4 {
+	    width: 65% !important;
+	    margin: 3% 10%;
+	}
+	
+	#content .board_table {
+		
+		margin: 0 auto;
+	}
+	
+	#content > .board_table label {
+		float: left;
+	}
+	#text1{
+		font-weight: border;
+		color: white;
+		font-size: 40px;
+	}
+	#text2{
+		font-weight: border;
+		color: white;
+	}
+	#file{
+		background-color: antiquewhite;
+	    width: 100%;
+	    border-radius: 5px;
+	}
+	.board_table  #board_title {
+		width: 100%;
+	}
+	.board-caption {
+		font-size: 3em;
+		color: orange;
+		font-weight: bold;
+		margin: 10px;
+	}
+	
+	.board_table  #board_content {
+		width: 100%;
+		height: 100%;
+		resize: none;
+	}
+	
+	.board_btn {
+		text-align: center;
+		margin: 5% 0;
+	}
+	
+	.board_btn button {
+		margin: 0 5%;
+		width: 30%;
+	}
+	
+	.board_btn > .board_write {
+		border: none;
+		border-radius: 5%;
+		background-color: brown;
+		color: #fff;
+		padding: 6px;
+		font-size: 16px;
+	}
+	
+	.board_btn > .board_list {
+		border: none;
+		border-radius: 5%;
+		background-color: chocolate;
+		color: #fff;
+		padding: 6px;
+		font-size: 16px;
+		
+	}
+	
+	.filebox .upload-name {
+	    display: inline-block;
+	    height: 30px;
+	    padding: 0 10px;
+	    vertical-align: middle;
+	    border: 1px solid #dddddd;
+	    width: 78%;
+	    color: #999999;
+	}
+	.filebox label {
+		width: 20%;
+	    display: inline-block;
+	    text-align: center;
+	    padding: 3px 5px;
+	    color: #fff;
+	    vertical-align: middle;
+	    background-color: #999999;
+	    cursor: pointer;
+	    height: 30px;
+	    margin-left: 5px;
+	}
+	.filebox input[type="file"] {
+	    position: absolute;
+	    width: 0;
+	    height: 0;
+	    padding: 0;
+	    overflow: hidden;
+	    border: 0;
+	}
+
+@media (max-width : 991px) {
+	.filebox label {
+		width: 15%;
+	}
+}
+
+
+/*-----------------------------------------------------------------------
+
+ 								tablet 
+ 								
+ ------------------------------------------------------------------------*/
+@media (max-width : 767.9998px) {
+
+.filebox .upload-name {
+	width: 70%;
+}
+
+.filebox label {
+	width: 25%;
+}
+	
+#content {
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+#content h4 {
+    width: 75% !important;
+    margin: 5% 0;
+}
+
+#content .board_table {
+	width: 100%;
+	margin: 0 auto;
+}
+
+#content > .board_table label {
+	float: left;
+}
+
+.board_table #board_title {
+	width: 100%;
+}
+
+.board_table #board_content {
+	width: 100%;
+	height: 100%;
+	resize: none;
+}
+
+.board_btn {
+	text-align: center;
+}
+
+.board_btn button {
+	margin: 0 5%;
+	width: 35%;
+}
+
+.board_btn > .board_write {
+	border: none;
+	border-radius: 5%;
+	background-color: brown;
+	color: #fff;
+}
+
+.board_btn > .board_list {
+	border: none;
+	border-radius: 5%;
+	background-color: orange;
+	color: #fff;
+}
+
+}
+/*-----------------------------------------------------------------------
+
+ 								mobile 
+ 								
+ ------------------------------------------------------------------------*/
+@media (max-width : 425.9998px) {
+
+#content {
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#content h4 {
+    width: 95% !important;
+    margin: 5% 0;
+}
+
+#content .board_table {
+	width: 100%;
+	margin: 0 auto;
+}
+
+#content > .board_table label {
+	float: left;
+}
+
+.board_table #board_title {
+	width: 100%;
+}
+
+.board_table #board_content {
+	width: 100%;
+	height: 100%;
+}
+
+.board_btn {
+	text-align: center;
+	margin: 5% 0;
+}
+
+.board_btn button {
+	margin: 0 5%;
+	width: 35%;
+}
+
+.board_btn > .board_write {
+	border: none;
+	border-radius: 5%;
+	background-color: brown;
+	color: #fff;
+}
+
+.board_btn > .board_list {
+	border: none;
+	border-radius: 5%;
+	background-color: orange;
+	color: #fff;
+}
+
+}

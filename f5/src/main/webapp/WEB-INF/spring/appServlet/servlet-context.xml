@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<annotation-driven />
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+	<resources mapping="/resources/**" location="/resources/" />
+	
+
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+	<!-- multipartResolver -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	</beans:bean> 
+	
+	<!-- DAO -->
+	<beans:bean id="storeDao" class="com.web.f5.dao.StoreDAO"></beans:bean>
+	<beans:bean id="adminMemberDAO" class="com.web.f5.dao.AdminMemberDAO"></beans:bean>
+	<beans:bean id="adminNoticeDAO" class="com.web.f5.dao.AdminNoticeDAO"></beans:bean>
+	<beans:bean id="adminBoardDAO" class="com.web.f5.dao.AdminBoardDAO"></beans:bean>
+	<beans:bean id="adminFaqDAO" class="com.web.f5.dao.AdminFaqDAO"></beans:bean>
+	<beans:bean id="adminQuestionDAO" class="com.web.f5.dao.AdminQuestionDAO"></beans:bean>
+	<beans:bean id="adminStoreDAO" class="com.web.f5.dao.AdminStoreDAO"></beans:bean>
+	<beans:bean id="reservationDao" class="com.web.f5.dao.ReservationDAO"></beans:bean>
+	<beans:bean id="memberDao" class="com.web.f5.dao.MemberDAO"></beans:bean>
+	<beans:bean id="reviewDao" class="com.web.f5.dao.ReviewDAO"></beans:bean>
+	<beans:bean id="boardDao" class="com.web.f5.dao.BoardDAO"></beans:bean>
+	<beans:bean id="replyDao" class="com.web.f5.dao.ReplyDAO"></beans:bean>
+	
+	<!-- service -->
+	<beans:bean id="StoreService" class="com.web.f5.service.StoreServiceImpl"></beans:bean>
+	<beans:bean id="AdminMemberService" class="com.web.f5.service.AdminMemberServiceImpl"></beans:bean>
+	<beans:bean id="AdminNoticeService" class="com.web.f5.service.AdminNoticeServiceImpl"></beans:bean>
+	<beans:bean id="AdminBoardService" class="com.web.f5.service.AdminBoardServiceImpl"></beans:bean>
+	<beans:bean id="AdminFaqService" class="com.web.f5.service.AdminFaqServiceImpl"></beans:bean>
+	<beans:bean id="AdminQuestionService" class="com.web.f5.service.AdminQuestionServiceImpl"></beans:bean>
+	<beans:bean id="AdminStoreService" class="com.web.f5.service.AdminStoreServiceImpl"></beans:bean>
+	<beans:bean id="pageService" class="com.web.f5.service.PageServiceImpl"></beans:bean>
+	<beans:bean id="memberService" class="com.web.f5.service.MemberServiceImpl"></beans:bean>
+	<beans:bean id="reviewService" class="com.web.f5.service.ReviewServiceImpl"></beans:bean>
+	<beans:bean id="reservationService" class="com.web.f5.service.ReservationServiceImpl"></beans:bean>
+	<beans:bean id="boardService" class="com.web.f5.service.BoardServiceImpl"></beans:bean>
+	<beans:bean id="replyService" class="com.web.f5.service.ReplyServiceImpl"></beans:bean>
+	<beans:bean id="boarpageService" class="com.web.f5.service.BoardPageServiceImpl"></beans:bean>
+	<beans:bean id="fileService" class="com.web.f5.service.FileServiceImpl"></beans:bean>
+
+	<context:component-scan base-package="com.web.f5" />
+	
+	
+	
+</beans:beans>

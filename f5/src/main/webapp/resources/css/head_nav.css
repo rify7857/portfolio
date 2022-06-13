@@ -1,0 +1,153 @@
+@charset "UTF-8";
+
+/* 헤더 */
+
+.head-nav-container {
+	position: relative;
+	background-color: #ffbb00;
+	height: 80px;
+	text-align: center;
+	vertical-align: middle;
+	margin-bottom: 50px;
+}
+
+.head-nav-title {
+	position: relative;
+	color: brown;
+	font-size: 15pt;
+	font-weight: bold;
+	top: 5px;
+	margin: 8px;
+}
+
+.head-nav-inner {
+	display: inline-block;
+	width: 100%;
+	
+	position: relative;
+	bottom: 0px;
+	left: 0px;
+	
+} 
+
+.nav-col-ul {
+	/* display: inline-block; */
+	margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  height: 100%;
+  vertical-align: middle;
+	
+}
+
+.nav-col-ul li{
+	width: calc(80%/5);
+	position: relative;
+	float: left;
+	display: inline-block;
+	text-align: center;
+	font-size: 15pt;
+	font-weight: bold;
+	height: 100%;
+	vertical-align: middle;
+}
+
+
+
+.nav-col-ul li:hover {
+	background-color: brown;
+	transition: 0.3s;
+	border-radius: 10px;
+}
+
+.nav-col-ul li a {
+	vertical-align: middle;
+	text-decoration: none;
+	color: white;
+}
+
+.board-caption {
+	font-size: 3em;
+	color: orange;
+	font-weight: bold;
+}
+
+
+
+
+@media screen and (min-width: 768px) and (max-width:992px) {
+	
+	
+	.board-caption {
+	font-size: 2em;
+	}
+
+}
+
+
+@media screen and (min-width: 425px) and (max-width:768px) {
+	.board-caption {
+	font-size: 1.5em;
+	}
+	
+	.nav-col-ul {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	
+	.nav-col-ul li {
+		width: 33%;
+		font-size: 12pt;
+		
+	}
+	
+	.nav-col-ul li:nth-last-child(1) {
+	/* display: none; */
+	
+	}
+	
+}
+
+@media screen and (min-width: 250px) and (max-width:425px) {
+	
+	.nav-col-ul {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	
+	.nav-col-ul {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	
+	.board-caption {
+	font-size: 1.5em;
+	}
+	
+	.nav-col-ul li {
+		width: calc(80%/3);
+		font-size: 11pt;
+	}
+	
+	.nav-col-ul li:nth-last-child(1) {
+	/* display: none; */
+	}
+	.nav-col-ul li:nth-last-child(2) {
+	/* display: none; */
+	}
+	
+	
+}
+
+
+
+
+
+

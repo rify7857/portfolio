@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.member">
+	<select id="loginCheck" parameterType="com.web.f5.vo.MemberVO" resultType="int">
+		select count(*) from member where memberId = #{memberId} and memberPass= #{memberPass}
+	</select>
+	<insert id="insert" parameterType="com.web.f5.vo.MemberVO">
+		insert into member values
+			(#{memberId} , #{memberPass},#{memberName},#{memberBirth},#{memberGender},#{memberTel},#{memberEmail},0,sysdate,0,0,0,0,0)
+	</insert>
+	<select id="select" parameterType="java.lang.String" resultType="com.web.f5.vo.MemberVO">
+		select * from member where memberId=#{memberId}
+	</select>
+		<insert id="memberInsert" parameterType="com.web.f5.vo.MemberVO">
+		insert into member
+		(
+			memberId,
+			memberPass,
+			memberName,
+			memberBirth,
+			memberGender,
+			memberTel,
+			memberEmail,
+			memberAddress,
+			memberDate,
+			memberPassHint,
+			memberPassHintAnswer,
+			postcode,
+			address,
+			detailAddress,
+			extraAddress
+		)
+		values
+		(
+			#{memberId}
+			,#{memberPass}
+			,#{memberName}
+			,#{memberBirth}
+			,#{memberGender}
+			,#{memberTel}
+			,#{memberEmail}
+			,#{memberAddress}
+			,sysdate
+			,#{memberPassHint}
+			,#{memberPassHintAnswer}
+			,#{postcode}
+			,#{address}
+			,#{detailAddress}
+			,#{extraAddress}
+		)
+	</insert>
+	
+	<!-- 회원 가입시 아이디 중복체크  -->
+	<select id="id_check" parameterType="java.lang.String" resultType="int">
+  		select count(*) from member where memberId=#{memberId} 
+	</select>
+	<insert id="insertCeo" parameterType="map">
+		insert into Ceo values(#{memberId} , #{storeIdx})
+	</insert>
+</mapper>

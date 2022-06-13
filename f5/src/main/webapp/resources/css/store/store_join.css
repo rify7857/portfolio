@@ -1,0 +1,202 @@
+@charset "UTF-8";
+@font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 100;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.otf) format('opentype');}
+@font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 300;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.otf) format('opentype');} @font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 400;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.otf) format('opentype');} @font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 500;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.otf) format('opentype');} @font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 700;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.otf) format('opentype');} @font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 900;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.otf) format('opentype');}
+
+
+
+
+@media (max-width:992px) {
+	.table {
+	 font-size: 0.7%;
+	}
+}
+
+
+@media screen and (min-width: 250px) and (max-width:425px) {
+	
+	.btn-board_write {
+		width: 60px;
+		height: 25px;
+		
+	}
+	
+	.flex-rw {
+	display: flex;
+	flex-wrap: wrap;
+	}
+	
+	.flex-rw td:nth-child(1) {
+	width: 50%;
+	}
+	.flex-rw td:nth-child(2) {
+	width: 50%;
+	}
+	.flex-rw td:nth-child(3) {
+	width: 10%;
+	}
+	.flex-rw td:nth-child(4) {
+	width: 50%;
+	}
+	.flex-rw td:nth-child(5) {
+	width: 30%;
+	}
+	
+	
+}
+
+
+
+/* top */
+
+.store-info {
+	margin-bottom: 20px;
+	border-bottom: 1px solid rgba(0,0,0,0.5);
+}
+
+.store-info img {
+	width: 100%;
+}
+
+
+
+/* 레이아웃 틀 */
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    background: #FFB85A;
+    font-family: Dotum,'돋움',Helvetica,sans-serif;
+}
+#logo {
+    width: 480px;
+    height: 130px;
+    cursor: pointer;
+}
+
+#header {
+    padding-top: 62px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+#table-wrap {
+    position: relative;
+    text-align: center;
+    height: 100%;
+
+}
+
+
+
+
+
+
+/* 입력폼 */
+.table-wrap {
+	text-align: center;
+}
+
+.store-table {
+	text-align: center;
+	margin: 0 auto;
+	width: 80%;
+	
+}
+
+.store-table td {
+	padding: 5px;
+	
+}
+
+.store-table tr td:first-child{
+	text-align: right;
+	
+}
+
+.store-table tr td:nth-last-child(1){
+	text-align: left;
+	
+}
+
+
+.store-table input{
+	
+	width: 100%;
+	vertical-align: middle;
+}
+
+
+
+.min .max {
+	width: 20%;
+}
+
+.file-add {
+	display: flex;
+}
+
+
+.file-add button {
+	width: 20%;
+	height: 50px;
+	vertical-align: middle;
+}
+
+
+
+/* 버튼 */
+
+.profile-change-btn {
+	font-size: 15pt;
+	margin-bottom: 20px;
+}
+
+
+@media (max-width:992px) {
+	.profile-change-btn {
+	font-size: 11pt;
+	}
+}
+
+
+@media (max-width:768px) {
+	.profile-change-btn {
+	font-size: 8pt;
+	}
+}
+
+@media (max-width:426px) {
+	.profile-change-btn {
+	font-size: 6pt;
+	
+	}
+	
+	.store-info h1 {
+		font-size: 15pt;
+	}
+}
+
+
+.btn_area {
+    margin: 30px 0 91px;
+}
+
+#btnJoin {
+    width: 50%;
+    padding: 21px 0 17px;
+    border: 0;
+    border-radius: 13px 13px;
+    cursor: pointer;
+    color: #fff;
+    background-color: orange;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: Gulim,'굴림';
+}
+
+#btnJoin:hover {
+	background-color: brown;
+}
+

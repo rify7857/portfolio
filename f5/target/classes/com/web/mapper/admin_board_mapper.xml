@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="mapper.adminboard">
+	
+	<select id="limitList" resultType="com.web.f5.vo.AdminBoardVO">
+		select rno, boardIdx, memberId, boardTitle, boardContent, boardDate, boardCategory
+		from
+			(select rownum rno, boardIdx, memberId, boardTitle, boardContent, to_char(boardDate,'yyyy-mm-dd') boardDate, boardCategory
+		from
+			(select boardIdx, memberId, boardTitle, boardContent, boardDate, boardCategory from board order by boardDate desc)
+			where
+				boardCategory = '일반'
+			or
+				boardCategory = '홍보'
+			)
+		where
+			rno &lt; 4
+	</select>
+	
+	<select id="count" resultType="int">
+		select count(*) from board where boardCategory = '일반'
+	</select>
+	
+	<select id="searchCount" resultType="int" parameterType="java.lang.String">
+		select count(*)
+		from board
+			<choose>
+				<when test='search_type == "t"'>
+					where
+						boardTitle like '%'||#{search}||'%'
+					and boardCategory = '일반'
+				</when>
+				<when test='search_type == "c"'>
+					where
+						boardContent like '%'||#{search}||'%'
+					and boardCategory = '일반'
+				</when>
+				<when test='search_type == "tc"'>
+					where
+						(
+							boardTitle like '%'||#{search}||'%'
+						or
+							boardContent like '%'||#{search}||'%'
+						)
+					and boardCategory = '일반'
+				</when>
+				<when test='search_type == "n"'>
+					where
+						memberId like '%'||#{search}||'%'
+					and boardCategory = '일반'
+				</when>
+				<otherwise>
+					where boardCategory = '일반'
+				</otherwise>
+			</choose>
+	</select>
+	
+	<select id="list" parameterType="map" resultType="com.web.f5.vo.AdminBoardVO">
+		select rno, boardIdx, memberId, boardTitle, boardContent, boardHits, boardDate, boardCategory
+		from
+			(select rownum rno, boardIdx, memberId, boardTitle, boardContent, boardHits, to_char(boardDate,'yyyy-mm-dd') boardDate, boardCategory
+		from
+			(select boardIdx, memberId, boardTitle, boardContent, boardHits, boardDate, boardCategory from board order by boardDate desc)
+			where
+			boardCategory = '일반')
+		where
+			rno between #{start} and #{end}
+	</select>
+	
+	<select id="getSearchList" parameterType="map" resultType="com.web.f5.vo.AdminBoardVO">
+		select rno, boardIdx, memberId, boardTitle, boardContent, boardHits, boardDate, boardCategory
+		from
+			(select rownum rno, boardIdx, memberId, boardTitle, boardContent, boardHits, to_char(boardDate,'yyyy-mm-dd') boardDate, boardCategory
+		from
+			(select boardIdx, memberId, boardTitle, boardContent, boardHits, boardDate, boardCategory from board order by boardDate desc)
+			<choose>
+				<when test='search_type == "t"'>
+					where
+						boardTitle like '%'||#{search}||'%'
+					and boardCategory = '일반'
+				</when>
+				<when test='search_type == "c"'>
+					where
+						boardContent like '%'||#{search}||'%'
+					and boardCategory = '일반'
+				</when>
+				<when test='search_type == "tc"'>
+					where
+						(
+							boardTitle like '%'||#{search}||'%'
+						or
+							boardContent like '%'||#{search}||'%'
+						)
+					and boardCategory = '일반'
+				</when>
+				<when test='search_type == "n"'>
+					where
+						memberId like '%'||#{search}||'%'
+					and boardCategory = '일반'
+				</when>
+				<otherwise>
+					where boardCategory = '일반'
+				</otherwise>
+			</choose>
+			)
+		where
+			rno between #{start} and #{end}
+	</select>
+	
+	<select id="getSearchJSONResult" parameterType="map" resultType="com.web.f5.vo.AdminBoardVO">
+		select rno, boardIdx, memberId, boardTitle, boardContent, boardHits, boardDate, boardCategory
+		from
+			(select rownum rno, boardIdx, memberId, boardTitle, boardContent, boardHits, to_char(boardDate,'yyyy-mm-dd') boardDate, boardCategory
+		from
+			(select boardIdx, memberId, boardTitle, boardContent, boardHits, boardDate, boardCategory from board order by boardDate desc)
+			<choose>
+				<when test='search_type == "t"'>
+					where
+						boardTitle like '%'||#{search}||'%'
+					and boardCategory = '일반'
+				</when>
+				<when test='search_type == "c"'>
+					where
+						boardContent like '%'||#{search}||'%'
+					and boardCategory = '일반'
+				</when>
+				<when test='search_type == "tc"'>
+					where
+						(
+							boardTitle like '%'||#{search}||'%'
+						or
+							boardContent like '%'||#{search}||'%'
+						)
+					and boardCategory = '일반'
+				</when>
+				<when test='search_type == "n"'>
+					where
+						memberId like '%'||#{search}||'%'
+					and boardCategory = '일반'
+				</when>
+				<otherwise>
+				where boardCategory = '일반'
+				</otherwise>
+			</choose>
+			)
+		where
+			rno between #{start} and #{end}
+	</select>
+	
+	<select id="boardContent" parameterType="java.lang.String" resultType="com.web.f5.vo.AdminBoardVO">
+		select boardIdx, memberId, boardTitle, boardContent, boardHits, boardDate, boardCategory
+		from
+			board
+		where
+			boardIdx = #{boardIdx}
+	</select>
+	
+	<delete id="boardDelete" parameterType="java.lang.String">
+		delete
+		from
+			board
+		where
+			boardIdx = #{boardIdx}
+	</delete>
+	
+	<insert id="getInsertPageview" parameterType="java.lang.String">
+		insert into pageview
+		(
+			pageviewIdx,
+			pageviewHits,
+			pageviewDate,
+			pageviewName
+		)
+		values
+		(
+			'pv_'||sequ_pageview.nextval,
+			0,
+			sysdate,
+			#{pageviewName}
+		)
+	</insert>
+	
+	<select id="getTotalPV" resultType="int">
+		select count(*)
+		from pageview
+	</select>
+	
+	<select id="getTodayPV" resultType="int">
+		select count(*)
+		from pageview
+		where
+		substr(pageviewDate, 0,10) &gt;= substr(sysdate, 0,10)
+	</select>
+</mapper>

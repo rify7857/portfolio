@@ -1,0 +1,334 @@
+@charset "UTF-8";
+table {
+	width: 100%;
+	border-collapse: collapse;
+	box-shadow: 5px 8px 6px #00000029;
+}
+
+table th {
+	background-color: oldlace;
+}
+
+table a {
+	text-decoration: none;
+	color: #000;
+}
+
+thead,
+tbody,
+tfoot,
+tr,
+td,
+th{
+	text-align: center;
+}
+
+section {
+	margin-top: 5% !important;
+}
+
+#member_table .black_list {
+	border: none;
+	border-radius: 5%;
+	background-color: brown;
+	color: #fff;
+}
+/*-----------------------------------------------------------------------
+
+ 								PC 
+ 								
+ ------------------------------------------------------------------------*/
+@media (min-width : 767.9999px) {
+
+#content1 {
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+#content1 > ul {
+	width: 100%;
+    height: 45%;
+}
+
+#content1 ul > .statistics_list {
+	list-style-type: none;
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+
+.statistics_list {
+	border: 1px solid;
+}
+
+#pageviews {
+	border: 1px solid;
+}
+
+#pageviews ul > li {
+	list-style-type: none;
+}
+
+#users {
+	border: 1px solid;
+}
+
+#users ul > li {
+	list-style-type: none;
+}
+
+#content2 {
+	width: 80%;
+	height: 100%;
+	margin: 0 auto;
+}
+
+.auth {
+	width: 100%;
+    text-align: center;
+}
+
+#content2 > .member_btn {
+	width: 100%;
+	text-align: right;
+}
+
+.member_btn button {
+	width: 15%;
+}
+
+.member_btn .member_more_btn {
+	border: none;
+	border-radius: 5%;
+	background-color: brown;
+	color: #fff;
+}
+
+.member_btn .ceo_member_more_btn {
+	border: none;
+	border-radius: 5%;
+	background-color: orange;
+	color: #fff;
+}
+
+.member_btn .black_member_more_btn {
+	border: none;
+	border-radius: 5%;
+	background-color: yellow;
+	color: #000;
+}
+
+#content3 {
+	margin: 0 auto;
+	width: 80%;
+	height: 100%;
+}
+
+#content3 > .question_btn {
+	float: right;
+}
+
+.question_btn .question_more_btn {
+	border: none;
+	border-radius: 5%;
+	background-color: brown;
+	color: #fff;
+}
+
+}
+
+/*-----------------------------------------------------------------------
+
+ 								tablet 
+ 								
+ ------------------------------------------------------------------------*/
+@media (max-width : 767.9998px) {
+
+#content1 {
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+#content1 > ul {
+	width: 100%;
+    height: 45%;
+}
+
+#content1 ul > .statistics_list {
+	list-style-type: none;
+    float: left;
+    width: 25%;
+    text-align: center;
+    display: contents;
+}
+
+.statistics_list {
+	border: 1px solid;
+}
+
+#pageviews {
+	border: 1px solid;
+}
+
+#pageviews ul > li {
+	list-style-type: none;
+}
+
+#users {
+	border: 1px solid;
+}
+
+#users ul > li {
+	list-style-type: none;
+}
+
+#content2 > .member_btn {
+	width: 100%;
+	text-align: right;
+}
+
+.member_btn button {
+	width: 15%;
+}
+
+.member_btn .member_more_btn {
+	border: none;
+	border-radius: 5%;
+	background-color: brown;
+	color: #fff;
+}
+
+.member_btn .ceo_member_more_btn {
+	border: none;
+	border-radius: 5%;
+	background-color: orange;
+	color: #fff;
+}
+
+.member_btn .black_member_more_btn {
+	border: none;
+	border-radius: 5%;
+	background-color: yellow;
+	color: #000;
+}
+
+#content3 {
+	margin: 0 auto;
+	width: 80%;
+	height: 100%;
+}
+
+#content3 > .question_btn {
+	float: right;
+}
+
+.question_btn .question_more_btn {
+	border: none;
+	border-radius: 5%;
+	background-color: brown;
+	color: #fff;
+}
+}
+/*-----------------------------------------------------------------------
+
+ 								mobile 
+ 								
+ ------------------------------------------------------------------------*/
+@media (max-width : 425.9998px) {
+
+#content1 {
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+#content1 > ul {
+	width: 100%;
+    height: 45%;
+}
+
+#content1 ul > .statistics_list {
+	list-style-type: none;
+    float: left;
+    width: 25%;
+    text-align: center;
+    display: contents;
+}
+
+.statistics_list {
+	border: 1px solid;
+}
+
+#pageviews {
+	border: 1px solid;
+}
+
+#pageviews ul > li {
+	list-style-type: none;
+}
+
+#users {
+	border: 1px solid;
+}
+
+#users ul > li {
+	list-style-type: none;
+}
+
+#content2 #member_table {
+	font-size: 10px;
+}
+
+#content2 > .member_btn {
+	width: 100%;
+	text-align: right;
+}
+
+.member_btn button {
+	width: 15%;
+}
+
+.member_btn .member_more_btn {
+	border: none;
+	border-radius: 5%;
+	background-color: brown;
+	color: #fff;
+}
+
+.member_btn .ceo_member_more_btn {
+	border: none;
+	border-radius: 5%;
+	background-color: orange;
+	color: #fff;
+}
+
+.member_btn .black_member_more_btn {
+	border: none;
+	border-radius: 5%;
+	background-color: yellow;
+	color: #000;
+}
+
+#content3 {
+	margin: 0 auto;
+	width: 100%;
+	height: 100%;
+}
+
+#content3 > .question_btn {
+	float: right;
+}
+
+#content3 #question_table {
+	font-size: 1pt;
+}
+
+.question_btn .question_more_btn {
+	border: none;
+	border-radius: 5%;
+	background-color: brown;
+	color: #fff;
+}
+}

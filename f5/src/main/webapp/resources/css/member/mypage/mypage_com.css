@@ -1,0 +1,130 @@
+@charset "UTF-8";
+/*-----------------------------------------------------------------------
+
+ 								PC 
+ 								
+ ------------------------------------------------------------------------*/
+@media ( min-width : 767.9999px) {
+	h2 {
+		color: brown;
+	}
+	.com_container {
+		width: 50%;
+		margin: auto;
+	}
+	.com_btn {
+		font-size: 10px;
+		padding: 1%;
+	}
+	#com_button1 {
+		font-size: 8px;
+	}
+	button {
+		height: 2.5em;
+		cursor: pointer;
+	}
+	#popup {
+		text-align: center;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, .7);
+		z-index: 1;
+	}
+	#popup.hide {
+		display: none;
+	}
+	#popup.has-filter {
+		backdrop-filter: blur(4px);
+		-webkit-backdrop-filter: blur(4px);
+	}
+	#popup .content {
+		width: 20%;
+		height: 30%;
+		padding: 20px;
+		background: #fff;
+		border-radius: 5px;
+		box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+		background-color: antiquewhite;
+	}
+	.pop_name {
+		color: brown;
+	}
+	.popup_btn1 {
+		border-radius: 10%;
+		height: 13%;
+		font-size: 35%;
+		background-color: brown;
+	}
+	.popup_btn2 {
+		border-radius: 10%;
+		height: 13%;
+		font-size: 35%;
+		background-color: orange;
+	}
+	#reset_btn {
+		height: 20%;
+		background: antiquewhite;
+		border-radius: 20px;
+		font-weight: bold;
+		color: brown;
+	}
+	#table_title {
+		background-color: orange;
+		color: white;
+	}
+	.my-search {
+		width: 40%;
+		font-size: 15px;
+	}
+	.my-bt {
+		background-color: brown;
+		width: 10%;
+		border-radius: 10px;
+		color: white;
+	}
+}
+/*-----------------------------------------------------------------------
+
+ 								tablet 
+ 								
+ ------------------------------------------------------------------------*/
+@media ( max-width : 767.9998px) {
+	.com_container {
+		width: 60%;
+		margin: auto;
+	}
+	.com_btn {
+		font-size: 10px;
+		padding: 1%;
+	}
+	#com_button1 {
+		font-size: 8px;
+	}
+}
+
+}
+/*-----------------------------------------------------------------------
+
+ 								mobile 
+ 								
+ ------------------------------------------------------------------------*/
+@media ( max-width : 425.9998px) {
+	.com_container {
+		width: 70%;
+		margin: auto;
+	}
+	.com_btn {
+		font-size: 10px;
+		padding: 1%;
+	}
+	#com_button1 {
+		font-size: 8px;
+	}
+}
+}

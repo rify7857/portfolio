@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="mapper.adminmember">
+	
+	<select id="mberTotalCnt" resultType="int">
+		select
+			count(*)
+		from
+			member
+	</select>
+	
+	<select id="mberTodayCnt" resultType="int">
+		select
+			count(*)
+		from
+			member
+		where
+			substr(memberDate, 0,10) &gt;= substr(sysdate, 0,10)
+	</select>
+	
+	<select id="CEOTotal" resultType="int">
+		select
+			count(*)
+		from
+			member
+		where
+			memberAuthority = '1'
+	</select>
+	
+	<select id="CEORequest" resultType="int">
+		select
+			count(*)
+		from
+			member
+		where
+		    memberAuthority = '4'
+	</select>
+	
+	<select id="count" resultType="int">
+		select count(*) from member
+	</select>
+	
+	<select id="getBlackCount" resultType="int">
+		select count(*) from member where memberAuthority = '2'
+	</select>
+	
+	<select id="getBlackSearchCount" resultType="int" parameterType="java.lang.String">
+		select count(*) from member where memberAuthority = '2'
+		<choose>
+			<when test='search_type == "n"'>
+				and memberName like '%'||#{search}||'%'
+			</when>
+			<when test='search_type == "i"'>
+				and memberId like '%'||#{search}||'%'
+			</when>
+			<when test='search_type == "ni"'>
+				and
+				(
+					memberName like '%'||#{search}||'%'
+					or
+					memberId like '%'||#{search}||'%'
+				)
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="searchCount" resultType="int" parameterType="java.lang.String">
+		select count(*)
+		from
+			member
+		where
+			<choose>
+				<when test='search_type == "n"'>
+					memberName like '%'||#{search}||'%'
+				</when>
+				<when test='search_type == "i"'>
+					memberId like '%'||#{search}||'%'
+				</when>
+				<when test='search_type == "ni"'>
+					memberName like '%'||#{search}||'%'
+					or
+					memberId like '%'||#{search}||'%'
+				</when>
+				<otherwise>
+				</otherwise>
+			</choose>
+	</select>
+	
+	<select id="getCeoCount" resultType="int" parameterType="java.lang.String">
+	select count(*)
+	from member a, store b, ceo c
+	where
+	    a.memberId = c.memberId and b.storeIdx = c.storeIdx and a.memberAuthority = '1'
+	</select>
+	
+	<select id="getCeoSearchCount" resultType="int" parameterType="java.lang.String">
+	select count(*)
+	from member a, store b, ceo c
+	where
+	    a.memberId = c.memberId and b.storeIdx = c.storeIdx and a.memberAuthority = '1'
+	<choose>
+          	<when test='search_type == "n"'>
+          		and
+          		(a.memberName like '%'||#{search}||'%')
+          	</when>
+          	<when test='search_type == "i"'>
+          		and
+          		(a.memberId like '%'||#{search}||'%')
+          	</when>
+          	<when test='search_type == "ni"'>
+          		and
+          		(
+          			a.memberName like '%'||#{search}||'%'
+          		or
+          			a.memberId like '%'||#{search}||'%'
+          		)
+          	</when>
+          	<when test='search_type == "s"'>
+          		and
+          		(b.storeName like '%'||#{search}||'%')
+          	</when>
+    </choose>
+	</select>
+	
+	<select id="getIdChk" resultType="int" parameterType="java.lang.String">
+		select count(*)
+		from member
+		where
+		memberId = #{memberId}
+	</select>
+	
+	<select id="limitList" resultType="com.web.f5.vo.AdminMemberVO">
+		select rno, memberId, memberName, memberBirth, memberAuthority, memberAgree, memberDate
+		from
+			(select rownum rno, memberId, memberName, memberBirth, memberAuthority, memberAgree, to_char(memberDate,'yy-mm-dd') memberDate
+		from
+			(select memberId, memberName, memberBirth, memberAuthority, memberAgree, memberDate from member order by memberDate desc))
+		where
+			rno &lt; 6
+	</select>
+	
+	<select id="list" parameterType="map" resultType="com.web.f5.vo.AdminMemberVO">
+		select rno, memberId, memberName, memberBirth, memberAuthority, memberDate
+		from
+			(select rownum rno, memberId, memberName, memberBirth, memberAuthority, to_char(memberDate,'yy-mm-dd') memberDate
+		from
+			(select memberId, memberName, memberBirth, memberAuthority, memberDate from member order by memberDate desc))
+		where
+			rno between #{start} and #{end}
+	</select>
+	
+	<select id="ceoList" parameterType="map" resultType="com.web.f5.vo.AdminMemberVO">
+		select rno, memberId, memberName, memberTel, memberAuthority, memberDate, storeIdx, storeName, storePlace
+		from
+    		(select rownum rno, a.memberId, a.memberName, a.memberTel, a.memberAuthority, a.memberDate, b.storeIdx, b.storeName, b.storePlace
+		from
+			member a, store b, ceo c
+        where
+            (a.memberAuthority = '1') and a.memberId = c.memberId and b.storeIdx = c.storeIdx order by a.memberDate desc
+            )
+		where
+			rno between #{start} and #{end} order by rno desc
+	</select>
+	
+	<select id="getBlackListResult" parameterType="map" resultType="com.web.f5.vo.AdminMemberVO">
+		select rno, memberId, memberName, memberTel, memberAuthority, memberBirth, memberDate
+		from
+			(select rownum rno, memberId, memberName, memberTel, memberAuthority, memberBirth, to_char(memberDate, 'yy-mm-dd') memberDate
+		from
+			(select memberId, memberName, memberTel, memberAuthority, memberBirth, memberDate from member order by memberDate desc)
+        where
+        	memberAuthority = '2')
+		where
+			rno between #{start} and #{end}
+	</select>
+	
+	<select id="searchList" parameterType="map" resultType="com.web.f5.vo.AdminMemberVO">
+		select rno, memberId, memberName, memberBirth, memberAuthority, memberDate
+		from
+			(select rownum rno, memberId, memberName, memberBirth, memberAuthority, to_char(memberDate,'yy-mm-dd') memberDate
+		from
+			(select memberId, memberName, memberBirth, memberAuthority, memberDate from member order by memberDate desc)
+		where
+			<choose>
+				<when test='search_type == "n"'>
+					memberName like '%'||#{search}||'%'
+				</when>
+				<when test='search_type == "i"'>
+					memberId like '%'||#{search}||'%'
+				</when>
+				<when test='search_type == "ni"'>
+					memberName like '%'||#{search}||'%'
+				or
+					memberId like '%'||#{search}||'%'
+				</when>
+				<otherwise>
+				</otherwise>
+			</choose>
+			)
+		where
+			(rno between #{start} and #{end})
+	</select>
+	
+	<select id="getBlackMberSearch" parameterType="map" resultType="com.web.f5.vo.AdminMemberVO">
+		select rno, memberId, memberName, memberBirth, memberAuthority, memberDate
+		from
+			(select rownum rno, memberId, memberName, memberBirth, memberAuthority, to_char(memberDate,'yy-mm-dd') memberDate
+		from
+			(select memberId, memberName, memberBirth, memberAuthority, memberDate from member order by memberDate desc)
+		where
+			memberAuthority = '2'
+			<choose>
+				<when test='search_type == "n"'>
+					and memberName like '%'||#{search}||'%'
+				</when>
+				<when test='search_type == "i"'>
+					and memberId like '%'||#{search}||'%'
+				</when>
+				<when test='search_type == "ni"'>
+					and 
+					(
+						memberName like '%'||#{search}||'%'
+					or
+						memberId like '%'||#{search}||'%'
+					)
+				</when>
+				<otherwise>
+				</otherwise>
+			</choose>
+			)
+		where
+			rno between #{start} and #{end}
+	</select>
+	
+	<select id="getBlackSearchList" parameterType="map" resultType="com.web.f5.vo.AdminMemberVO">
+		select rno, memberId, memberName, memberBirth, memberAuthority, memberDate
+		from
+			(select rownum rno, memberId, memberName, memberBirth, memberAuthority, to_char(memberDate,'yy-mm-dd') memberDate
+		from
+			(select memberId, memberName, memberBirth, memberAuthority, memberDate from member order by memberDate desc)
+		where
+			memberAuthority = '2'
+			<choose>
+				<when test='search_type == "n"'>
+					and memberName like '%'||#{search}||'%'
+				</when>
+				<when test='search_type == "i"'>
+					and memberId like '%'||#{search}||'%'
+				</when>
+				<when test='search_type == "ni"'>
+					and 
+					(
+						memberName like '%'||#{search}||'%'
+					or
+						memberId like '%'||#{search}||'%'
+					)
+				</when>
+				<otherwise>
+				</otherwise>
+			</choose>
+			)
+		where
+			rno between #{start} and #{end}
+	</select>
+	
+	<select id="getCeoSearchResult" parameterType="map" resultType="com.web.f5.vo.AdminMemberVO">
+		select rno, memberId, memberName, memberTel, memberAuthority, memberDate, storeIdx, storeName, storePlace
+		from
+    		(select rownum rno, a.memberId, a.memberName, a.memberTel, a.memberAuthority, a.memberDate, b.storeIdx, b.storeName, b.storePlace
+		from
+			member a, store b, ceo c
+        where
+            (a.memberAuthority = '1')
+            <choose>
+            	<when test='search_type == "n"'>
+            		and
+            		(a.memberName like '%'||#{search}||'%')
+            	</when>
+            	<when test='search_type == "i"'>
+            		and
+            		(a.memberId like '%'||#{search}||'%')
+            	</when>
+            	<when test='search_type == "ni"'>
+            		and
+            		(
+            			a.memberName like '%'||#{search}||'%'
+            		or
+            			a.memberId like '%'||#{search}||'%'
+            		)
+            	</when>
+            	<when test='search_type == "s"'>
+            		and
+            		(b.storeName like '%'||#{search}||'%')
+            	</when>
+            </choose>
+            and a.memberId = c.memberId and b.storeIdx = c.storeIdx order by a.memberDate desc)
+		where
+			rno between #{start} and #{end} order by rno asc
+	</select>
+	
+	<select id="JSONlist" parameterType="map" resultType="com.web.f5.vo.AdminMemberVO">
+		select rno, memberId, memberName, memberBirth, memberAuthority, memberDate
+		from
+			(select rownum rno, memberId, memberName, memberBirth, memberAuthority, to_char(memberDate,'yy-mm-dd') memberDate
+		from
+			(select memberId, memberName, memberBirth, memberAuthority, memberDate from member order by memberDate desc)
+			<choose>
+				<when test='search_type == "n"'>
+					where memberName like '%'||#{search}||'%'
+				</when>
+				<when test='search_type == "i"'>
+					where memberId like '%'||#{search}||'%'
+				</when>
+				<when test='search_type == "ni"'>
+					where 
+					(
+						memberName like '%'||#{search}||'%'
+					or
+						memberId like '%'||#{search}||'%'
+					)
+				</when>
+				<otherwise>
+				</otherwise>
+			</choose>
+			)
+		where
+			rno between #{start} and #{end}
+	</select>
+	
+	<select id="memberContent" parameterType="java.lang.String" resultType="com.web.f5.vo.AdminMemberVO">
+		select
+			memberId, memberName, memberBirth, memberTel, memberEmail, memberGender,
+			memberAddress, memberAuthority, memberPassHint, memberPassHintAnswer,
+			postcode, address, detailAddress, extraAddress
+		from
+			member
+		where
+			memberId = #{memberId}
+	</select>
+	
+	<insert id="memberInsert" parameterType="com.web.f5.vo.AdminMemberVO">
+		insert into member
+		(
+			memberId,
+			memberPass,
+			memberName,
+			memberBirth,
+			memberGender,
+			memberTel,
+			memberEmail,
+			memberAddress,
+			memberDate,
+			memberPassHint,
+			memberPassHintAnswer,
+			postcode,
+			address,
+			detailAddress,
+			extraAddress
+		)
+		values
+		(
+			#{memberId}
+			,#{memberPass}
+			,#{memberName}
+			,#{memberBirth}
+			,#{memberGender}
+			,#{memberTel}
+			,#{memberEmail}
+			,#{memberAddress}
+			,sysdate
+			,#{memberPassHint}
+			,#{memberPassHintAnswer}
+			,#{postcode}
+			,#{address}
+			,#{detailAddress}
+			,#{extraAddress}
+		)
+	</insert>
+	
+	<update id="memberUpdate" parameterType="com.web.f5.vo.AdminMemberVO">
+		update member
+		set
+			memberName = #{memberName}
+			,memberBirth = #{memberBirth}
+			,memberGender = #{memberGender}
+			,memberTel = #{memberTel}
+			,memberEmail = #{memberEmail}
+			,memberAddress = #{memberAddress}
+			,memberPassHint = #{memberPassHint}
+			,memberPassHintAnswer = #{memberPassHintAnswer}
+			,postcode = #{postcode}
+			,address = #{address}
+			,detailAddress = #{detailAddress}
+			,extraAddress = #{extraAddress}
+		where
+			memberId = #{memberId}
+	</update>
+	
+	<delete id="memberDelete" parameterType="java.lang.String">
+		delete from member
+		where
+			memberId = #{memberId}
+	</delete>
+	
+	<update id="chkMberUpdate" parameterType="java.lang.String">
+		update member
+		set
+			memberAuthority = #{memberAuthority}
+		where
+			memberId = #{memberId}
+	</update>
+	
+	<update id="getBlackInsert" parameterType="java.lang.String">
+		update member
+		set
+			memberAuthority = '2'
+		where
+			memberId = #{memberId}
+	</update>
+	
+	<update id="getBlackOut" parameterType="java.lang.String">
+		update member
+		set
+			memberAuthority = '0'
+		where
+			memberId = #{memberId}
+	</update>
+	
+</mapper>
