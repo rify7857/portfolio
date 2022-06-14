@@ -39,4 +39,10 @@
 	<select id="getAverageScore" parameterType="java.lang.String" resultType="float">
 		select avg(nvl(reviewScore,0)) from review where storeIdx = #{storeIdx}
 	</select>
+	<select id="selectList" parameterType="java.lang.String" resultType="com.web.f5.vo.ReviewVO">
+		select a.reviewidx, a.storeIdx, a.memberId, a.reviewContent, a.reviewScore, b.storeName from review a
+		inner join store b
+		on a.storeIdx = b.storeIdx
+		where a.memberId = #{memberId}
+	</select>
 </mapper>  

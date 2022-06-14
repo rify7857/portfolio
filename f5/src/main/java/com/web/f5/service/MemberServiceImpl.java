@@ -40,4 +40,9 @@ public class MemberServiceImpl implements MemberService {
 		// TODO Auto-generated method stub
 		return memberDao.insertCeo(vo,session);
 	}
+	@Override
+	public int memberUpdateResult(MemberVO vo) {
+		// TODO Auto-generated method stub
+		return memberDao.memberUpdate(vo);
+	}
 }

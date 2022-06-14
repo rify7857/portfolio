@@ -17,4 +17,12 @@
 		from (select reservationCount,reservationTime,reservationTimeDate from reservation where storeIdx = #{storeIdx}) 
 		where reservationTime = #{rTime} and reservationTimeDate = #{rDate}
 	</select>
+	<select id="selectList" parameterType="java.lang.String" resultType="com.web.f5.vo.ReservationVO">
+		select a.reservationIdx, a.storeIdx, a.memberId, a.reservationcount,a.reservationdate,a.reservationTime,a.reservationtimedate,b.storename,c.sufile1 from reservation a 
+		inner join store b
+		on a.storeIdx = b.storeIdx
+		inner join storefile c
+		on a.storeIdx= c.storeIdx
+		where a.memberId = #{memberId}
+	</select>
 </mapper>

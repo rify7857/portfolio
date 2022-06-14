@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c" %> 
 <!DOCTYPE html>
 <head>
 <html lang="en">
@@ -54,7 +55,7 @@
         		<div class="profile">
 					<img class="user-img" src="/f5/resources/images/user.png"><br>
 				</div>
-				<span class="profile-h"><h2>Username 님, 환영합니다!</h2></span>
+				<span class="profile-h"><h2>${vo.memberId } 님, 환영합니다!</h2></span>
 				<hr>
 		
         	</div>
@@ -65,25 +66,16 @@
 		<H2>나의 예약현황</H2>
 		<div class="store">
 			
+			 <c:forEach var="rvo"  items="${list}">
 			<div class="store_btn">
-				<img class="store_img" src="/f5/resources/images/sample1.jpg"><br>
-				<a>Store Name</a><br>
+				<img class="store_img" src="/f5/resources/upload/${rvo.suFile1 }" alt="..."><br>
+				<a>${rvo.storeName }</a><br>
+				<a>${rvo.reservationTimeDate}</a><br>
+				<a>${rvo.reservationCount }명</a><br>
 				<button class="store_btn1" id="testDatepicker" onclick="showPopup(false)">예약변경</button>
 				<button class="store_btn2">예약취소</button>
 			</div>
-			<div class="store_btn">
-				<img class="store_img" src="/f5/resources/images/sample1.jpg"><br>
-				<a>Store Name</a><br>
-				<button class="store_btn1" id="testDatepicker" onclick="showPopup(false)">예약변경</button>
-				<button class="store_btn2">예약취소</button>
-			</div>
-			<div class="store_btn">
-				<img class="store_img" src="/f5/resources/images/sample1.jpg"><br>
-				<a>Store Name</a><br>
-				<button class="store_btn1" onclick="showPopup(false)">예약변경</button>
-				<button class="store_btn2">예약취소</button>
-			</div>
-		
+			</c:forEach>
 
 		</div>
 		<br>

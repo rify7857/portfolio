@@ -12,4 +12,5 @@ public interface ReviewService {
 	public int updateResult(String reviewIdx,String reviewContent,int reviewScore);
 	public ArrayList<ReviewVO> selectMyListResult(String memberId, int endCount,String storeIdx);
 	public float getAverageScore(String storeIdx);
+	public ArrayList<ReviewVO> selectList(String memberId);
 }

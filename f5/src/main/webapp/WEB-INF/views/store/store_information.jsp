@@ -52,8 +52,6 @@
 		};
  	 }	
 	});//documnet ready
-	
-
 </script>
 <style type="text/css">
 	.more-review{
@@ -230,6 +228,7 @@
 					</ul>
 				</nav>
 		</div>
+
 	</div>
 
 	<jsp:include page="../footer.jsp"></jsp:include>

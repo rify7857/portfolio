@@ -38,6 +38,7 @@
 	<beans:bean id="reviewDao" class="com.web.f5.dao.ReviewDAO"></beans:bean>
 	<beans:bean id="boardDao" class="com.web.f5.dao.BoardDAO"></beans:bean>
 	<beans:bean id="replyDao" class="com.web.f5.dao.ReplyDAO"></beans:bean>
+	<beans:bean id="ceoDAO" class="com.web.f5.dao.CEODAO"></beans:bean>
 	
 	<!-- service -->
 	<beans:bean id="StoreService" class="com.web.f5.service.StoreServiceImpl"></beans:bean>
@@ -55,7 +56,7 @@
 	<beans:bean id="replyService" class="com.web.f5.service.ReplyServiceImpl"></beans:bean>
 	<beans:bean id="boarpageService" class="com.web.f5.service.BoardPageServiceImpl"></beans:bean>
 	<beans:bean id="fileService" class="com.web.f5.service.FileServiceImpl"></beans:bean>
-
+	<beans:bean id="CeoService" class="com.web.f5.service.CEOServiceImpl"></beans:bean>
 	<context:component-scan base-package="com.web.f5" />
 	
 	

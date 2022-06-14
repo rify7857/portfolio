@@ -154,7 +154,6 @@ public class AdminBoardController {
 					lvo.setDerecoCount(decount);
 					
 					ReplyVO vo = lvo;
-					//int result = replyService.getRecoCheckResult(vo);
 					
 					vo.setReplyRecommendCheck(replyService.getSelectReCheck(r, memberId));
 						

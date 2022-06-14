@@ -41,4 +41,9 @@ public class ReviewServiceImpl implements ReviewService{
 		// TODO Auto-generated method stub
 		return reviewDao.getAverageScore(storeIdx);
 	}
+	@Override
+	public ArrayList<ReviewVO> selectList(String memberId) {
+		// TODO Auto-generated method stub
+		return reviewDao.selectList(memberId);
+	}
 }

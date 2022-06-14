@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c" %>
 <!DOCTYPE html>
 <head>
 <html lang="en">
@@ -36,7 +37,7 @@
 	<div class="profile">
 		<img class="user-img" src="/f5/resources/images/user.png"><br>
 	</div>
-	<span class="profile-h"><h2>Username 님, 환영합니다!</h2></span>
+	<span class="profile-h"><h2>${sessionScope.memberId } 님, 환영합니다!</h2></span>
 	<hr>
 
 	<!-- comment -->
@@ -50,17 +51,16 @@
 					<th>매장명</th>
 					<th>내용</th>
 					<th>평점</th>
-					<th>작성일</th>
 					<th>변경사항</th>
 				</tr>
+				<c:forEach var="rvo"  items="${list}">
 				<tr>
-					<td>StoreName</td>
-					<td>StoreContent</td>
-					<td>StoreScore</td>
-					<td>WriteDay</td>
+					<td>${rvo.storeName }</td>
+					<td>${rvo.reviewContent }</td>
+					<td>${rvo.reviewScore }</td>
 					<td><button id="reset_btn" onclick="showPopup(false)">변경하기</button></td>
 				</tr>
-
+				</c:forEach>
 			</table>
 			<br>
 
@@ -98,11 +98,11 @@
 					</div>
 					<p>내용 : <input type="text"></p>
 					<p>평점 : <select id="store_score">
-									<option>★</option>
-									<option>★★</option>
-									<option>★★★</option>
-									<option>★★★★</option>
-									<option>★★★★★</option>
+									<option value=1>★</option>
+									<option value=2>★★</option>
+									<option value=3>★★★</option>
+									<option value=4>★★★★</option>
+									<option value=5>★★★★★</option>
 							</select></p>
 					<button class="popup_btn1" onclick="">수정하기</button>
 					<button class="popup_btn2" onclick="closePopup()">취소하기</button>

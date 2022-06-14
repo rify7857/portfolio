@@ -47,4 +47,7 @@ public class StoreDAO {
 	public String getStoreIdx() {
 		return sqlSession.selectOne(namespace+".selectStoreIdx");
 	}
+	public StoreVO selectSufiles(String storeIdx){
+		return sqlSession.selectOne(namespace+".selectSufiles",storeIdx);
+	}
 }

@@ -46,7 +46,7 @@ public class AdminController {
 		String CEOTotalCnt = "0";
 		String CEORequestCnt = "0";
 		
-		// �궃�닔 泥섎━
+		// 난수 처리
 		Random rnd =new Random();
 		StringBuffer buf =new StringBuffer();
 		

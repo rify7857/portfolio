@@ -3,6 +3,26 @@ package com.web.f5.vo;
 public class ReservationVO {
 	String reservationIdx,storeIdx,memberId,reservationDate,reservationCount;
 	String reservationTime, reservationTimeDate;
+	String storeName;
+	String suFile1;
+	
+	
+	public String getSuFile1() {
+		return suFile1;
+	}
+
+	public void setSuFile1(String suFile1) {
+		this.suFile1 = suFile1;
+	}
+
+	public String getStoreName() {
+		return storeName;
+	}
+
+	public void setStoreName(String storeName) {
+		this.storeName = storeName;
+	}
+
 	public String getReservationIdx() {
 		return reservationIdx;
 	}

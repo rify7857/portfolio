@@ -12,53 +12,9 @@
 <script src="/f5/resources/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		var memberId = '${sessionScope.memberId}';
-		if(memberId == ""){
-			var confirmResult = confirm("로그인이 필요한 페이지입니다. 로그인페이지로 이동하시겠습니까?");
-			if(confirmResult){
-				 $(location).attr('href', "http://localhost:9000/f5/login.do");
-			}else{
-				alert("접근할 수 없습니다.")
-				$(location).attr('href', "http://localhost:9000/f5/index.do");
-			}
-		} 
+
 		
-		$('#btnJoin').on('click',function(){
-			var filenumber = $('#file-number').val();
-			if(filenumber != 6){
-				for(var i=parseInt(filenumber); i<6; i++){
-					var str = "<input type='file' name = 'sFiles' value='' class = 'file-upload'>";
-					$('.file-selector-list').append(str);
-				}
-			}
-			store_join_form.submit();
-		});
-		drawFileSelector(1);
-		$(document).on('change','.file-upload',function(){
-			var fileName = $(this)[0].files[0].name;
-			$(this).siblings('.file-name-holder').val(fileName);
-			if(fileName != ""){
-				var filenumber = $('#file-number').val()
-				drawFileSelector(filenumber);
-			}
-		});
 	});
-	function drawFileSelector(filenumber){
-		var filename = $('#file-name-holder-'+(String)(filenumber-1)).val();
-		if(filenumber != 1 && (filename == "" || filenumber == 6)){
-			
-		}else{
-			var str = "";
-			str =str +'<div class="file-add">';
-			str =str +'<input class="file-name-holder" id="file-name-holder-'+filenumber+'" disabled="disabled">';
-			str =str +'<label for="file-upload-'+filenumber+'" class="file-label" id=file-label-"'+filenumber+'">+</label>';
-			str =str +'<input type="file" class="file-upload" id="file-upload-'+filenumber+'" name = "sFiles"></div>';
-			if(filenumber != 6){
-				$('#file-number').val(parseInt(filenumber)+1);
-				$('.file-selector-list').append(str);
-			}
-		}
-	}
 </script>
 <style type="text/css">
 	.store-table tr th {
@@ -135,29 +91,29 @@
            
             	<tr><th colspan="5">가게상호명</th></tr>
             	<tr>
-            		<td colspan="5"><input type="text" name = "storeName" placeholder="가게이름을 입력해주세요"></td>
+            		<td colspan="5"><input type="text" name = "storeName" placeholder="${vo.storeName }"></td>
             	</tr>
             	
             	<tr><th colspan="5">주소</th></tr>
             	<tr>
-            		<td colspan="5"><input type="text" name = "storePlace" placeholder="가게 주소를 입력해주세요"></td>
+            		<td colspan="5"><input type="text" name = "storePlace" placeholder="${vo.storePlace }"></td>
             	</tr>
             	
             	<tr><th colspan="5">전화번호</th></tr>
             	<tr>
-            		<td colspan="5"><input type="text" name = "storeTel" placeholder="가게 전화번호를 입력해주세요"></td>
+            		<td colspan="5"><input type="text" name = "storeTel" placeholder="${vo.storeTel }"></td>
             	</tr>
             	<tr><th colspan="5">가게소개</th></tr>
             	<tr>
-            		<td colspan="5"><input type="text" name = "storeContent" placeholder="소개글을 입력해주세요"></td>
+            		<td colspan="5"><input type="text" name = "storeContent" placeholder="${vo.storeContent }"></td>
             	</tr>
             	<tr><th colspan="5">이벤트</th></tr>
             	<tr>
-            		<td colspan="5"><input type="text" name = "storeEvent" placeholder="이벤트를 입력해주세요"></td>
+            		<td colspan="5"><input type="text" name = "storeEvent" placeholder="${vo.storeEvent }"></td>
             	</tr>
             	<tr><th colspan="5">혜택</th></tr>
             	<tr>
-            		<td colspan="5"><input type="text" name = "storeBenefit" placeholder="혜택을 입력해주세요"></td>
+            		<td colspan="5"><input type="text" name = "storeBenefit" placeholder="${vo.storeBenefit }"></td>
             	</tr>
             	
             	<tr><th colspan="5">메뉴 유형</th></tr>
@@ -173,17 +129,17 @@
             	</tr>
             	<tr><th colspan="5">가용인원</th></tr>
             	<tr>
-            		<td colspan="5"><input type="text" placeholder="가용인원수를 입력해주세요(숫자만입력)" name="storeMaxCount"></td>
+            		<td colspan="5"><input type="text" placeholder="${vo.storeMaxCount }" name="storeMaxCount"></td>
             	</tr>
             	<tr><th colspan="5">가격대</th></tr>
             	<tr class="store-join-price">
-            		<td><input class="min" type="text" placeholder="최소가격을 입력해주세요(숫자만입력)" name = "storeMinPrice"></td>
+            		<td><input class="min" type="text" placeholder="${vo.storeMinPrice }" name = "storeMinPrice"></td>
 
 					<td>
 						~ 
 					</td>
 					
-					<td><input class="max" type="text" placeholder="최대가격을 입력해주세요(숫자만입력)" name="storeMaxPrice"></td>
+					<td><input class="max" type="text" placeholder="${vo.storeMaxPrice }" name="storeMaxPrice"></td>
 
             	</tr>
             	
@@ -199,7 +155,7 @@
             	
             	<tr><th colspan="5">웹사이트</th></tr>
             	<tr>
-            		<td colspan="5"><input type="text" placeholder="웹사이트 주소를 입력해주세요" name="storeWebSite"></td>
+            		<td colspan="5"><input type="text" placeholder="${vo.storeWebSite }" name="storeWebSite"></td>
             	</tr>
 
             	<tr><th colspan="5">파일첨부</th></tr>
@@ -208,6 +164,31 @@
             		<input type="hidden" id="file-number" value="1">
             			<div class="file-selector-list">
             			</div>
+            			<div class="file-add">
+							<input class="file-name-holder" id="file-name-holder-1" disabled="disabled"placeholder="${fileVO.suFile1 }">
+							<label for="file-upload-1" class="file-label" id="file-label-1">+</label>
+							<input type="file" class="file-upload" id="file-upload-1" name = "sFiles">
+						</div>
+						<div class="file-add">
+							<input class="file-name-holder" id="file-name-holder-2" disabled="disabled" placeholder="${fileVO.suFile2 }">
+							<label for="file-upload-2" class="file-label" id="file-label-2">+</label>
+							<input type="file" class="file-upload" id="file-upload-2" name = "sFiles">
+						</div>
+						<div class="file-add">
+							<input class="file-name-holder" id="file-name-holder-3" disabled="disabled" placeholder="${fileVO.suFile3 }">
+							<label for="file-upload-3" class="file-label" id="file-label-3">+</label>
+							<input type="file" class="file-upload" id="file-upload-3" name = "sFiles">
+						</div>
+						<div class="file-add">
+							<input class="file-name-holder" id="file-name-holder-4" disabled="disabled" placeholder="${fileVO.suFile4 }">
+							<label for="file-upload-4" class="file-label" id="file-label-4">+</label>
+							<input type="file" class="file-upload" id="file-upload-4" name = "sFiles">
+						</div>
+						<div class="file-add">
+							<input class="file-name-holder" id="file-name-holder-5" disabled="disabled" placeholder="${fileVO.suFile5 }">
+							<label for="file-upload-5" class="file-label" id="file-label-5">+</label>
+							<input type="file" class="file-upload" id="file-upload-5" name = "sFiles">
+						</div>
             			<div>파일업로드는 최대 5개까지 가능합니다.</div>
             		</td>
             	</tr>
@@ -218,7 +199,7 @@
 	       <!-- JOIN BTN-->
 	       <div class="btn_area">
 	           <button type="button" id="btnJoin">
-	               <span>등록하기</span>
+	               <span>변경하기</span>
 	           </button>
 	       </div>
 		</form>

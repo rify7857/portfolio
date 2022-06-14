@@ -21,6 +21,7 @@ import com.google.gson.JsonObject;
 import com.web.f5.service.MemberService;
 import com.web.f5.vo.MemberVO;
 import com.web.f5.service.AdminMemberService;
+import com.web.f5.service.CEOService;
 import com.web.f5.service.ReservationService;
 import com.web.f5.service.ReviewService;
 import com.web.f5.service.StoreService;
@@ -41,6 +42,8 @@ public class StoreController {
 	ReservationService reservationService;
 	@Autowired
 	MemberService memberService;
+	@Autowired
+	CEOService CeoService;
 		
 
 		@RequestMapping(value = "/store_join.do", method = RequestMethod.GET)
@@ -237,4 +240,18 @@ public class StoreController {
 		float result = reviewService.getAverageScore(storeIdx);
 			return String.format("%.2f", result);
 		}
+		@RequestMapping(value = "/store_join_update.do" , method = RequestMethod.GET)
+		public ModelAndView store_join_update(String memberId) {
+			ModelAndView mv= new ModelAndView();
+			String storeIdx = CeoService.selectStore(memberId);
+			StoreVO vo = storeService.selectResult(storeIdx);
+			StoreVO fileVO = storeService.selectSufiles(storeIdx);
+			
+			mv.addObject("vo",vo);
+			mv.addObject("fileVO",fileVO);
+			mv.setViewName("store/store_join_update");
+			return mv;
+		}
+		
+		
 }

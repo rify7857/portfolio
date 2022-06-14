@@ -19,6 +19,11 @@ public class StoreServiceImpl implements StoreService{
 	@Autowired
 	private StoreDAO storeDao;
 	
+@Override
+	public StoreVO selectSufiles(String storeIdx) {
+		// TODO Auto-generated method stub
+		return storeDao.selectSufiles(storeIdx);
+	}
 	@Override
 	public int insertResult(StoreVO vo) {
 		return storeDao.insert(vo);

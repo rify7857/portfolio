@@ -330,16 +330,45 @@
 							<dd>${vo.boardDate}</dd>
 						</dl>
 						<dl>
-							<dt>추천:</dt>
-							<dd>123</dd>
+						<c:choose>
+							<c:when test="${brvo.boardRecommendCheck eq '0'}">
+								<button style="background-color: red" class="recommend_btn" id="reco_${vo.boardIdx }" value='2'>추천</button>
+							</c:when>
+							<c:otherwise>
+								<button style="background-color: white" class="recommend_btn" id="reco_${vo.boardIdx }" value='0'>추천</button>
+							</c:otherwise>
+						</c:choose>
+							<dd id="board_reco_${vo.boardIdx }">${reco }</dd>
 						</dl>
 						<dl>
-							<dt>비추천:</dt>
-							<dd>12</dd>
+						<c:choose>
+							<c:when test="${brvo.boardRecommendCheck eq '1'}">
+								<button style="background-color: red" class="derecommend_btn" id="deco_${vo.boardIdx }" value='2'>비추천</button>
+							</c:when>
+							<c:otherwise>
+								<button style="background-color: white" class="derecommend_btn" id="deco_${vo.boardIdx }" value='1'>비추천</button>
+							</c:otherwise>
+						</c:choose>
+							<dd id="board_deco_${vo.boardIdx }">${deco }</dd>
 						</dl>
 					</div>
 					<div class="board-content-article">
 						<div class="board-content">
+							<c:if test="${vo.bFile1 != null}">
+							<img alt="" src="/f5/resources/upload/${vo.bsFile1 }"><br><br>
+							</c:if>
+							<c:if test="${vo.bFile2 != null}">
+							<img alt="" src="/f5/resources/upload/${vo.bsFile2 }"><br><br>
+							</c:if>
+							<c:if test="${vo.bFile3 != null}">
+							<img alt="" src="/f5/resources/upload/${vo.bsFile3 }"><br><br>
+							</c:if>
+							<c:if test="${vo.bFile4 != null}">
+							<img alt="" src="/f5/resources/upload/${vo.bsFile4 }"><br><br>
+							</c:if>
+							<c:if test="${vo.bFile5 != null}">
+							<img alt="" src="/f5/resources/upload/${vo.bsFile5 }"><br><br>
+							</c:if>
 							<p>${vo.boardContent}</p>
 						</div>
 						<div class="board-reply-container">

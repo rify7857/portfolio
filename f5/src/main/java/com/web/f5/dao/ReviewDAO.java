@@ -54,4 +54,9 @@ public class ReviewDAO {
 		}
 		
 	}
+	public ArrayList<ReviewVO> selectList(String memberId){
+		List<ReviewVO> list = new ArrayList<ReviewVO>();
+		list = sqlSession.selectList(namespace+".selectList",memberId);
+		return (ArrayList<ReviewVO>)list;
+	}
 }

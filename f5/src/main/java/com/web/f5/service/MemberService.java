@@ -11,4 +11,5 @@ public interface MemberService {
 	public MemberVO select_result(String memberId);
 	public int getIdCheckResult(String id);
 	public int insertCeoResult(StoreVO vo, HttpSession session);
+	public int memberUpdateResult(MemberVO vo);
 }

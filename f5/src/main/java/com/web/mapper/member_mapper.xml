@@ -60,4 +60,21 @@
 	<insert id="insertCeo" parameterType="map">
 		insert into Ceo values(#{memberId} , #{storeIdx})
 	</insert>
+	<update id="memberUpdate" parameterType="com.web.f5.vo.MemberVO">
+		update member set 	memberPass = #{memberPass},
+							memberName = #{memberName},
+							memberBirth = #{memberBirth},
+							memberGender = #{memberGender},
+							memberTel = #{memberTel},
+							memberEmail = #{memberEmail},
+							memberAddress = #{memberAddress},
+							memberPassHint = #{memberPassHint},
+							memberPassHintAnswer = #{memberPassHintAnswer},
+							postcode =#{postcode},
+							address = #{address},
+							detailAddress = #{detailAddress},
+							extraAddress = #{extraAddress}
+		
+		where memberId = #{memberId}
+	</update>
 </mapper>

@@ -43,4 +43,8 @@ public class MemberDAO {
 		param.put("storeIdx", vo.getStoreIdx());
 		return sqlSession.insert(namespace+".insertCeo",param);
 	}
+	
+	public int memberUpdate(MemberVO vo) {
+		return sqlSession.update(namespace+".memberUpdate",vo);
+	}
 }

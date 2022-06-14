@@ -60,5 +60,8 @@
 											(select storeidx from store order by storedate desc))
 		 where rno =1
 	</select>
+	<select id="selectSufiles" parameterType="java.lang.String" resultType="com.web.f5.vo.StoreVO">
+		select sufile1, sufile2, sufile3, sufile4, sufile5 from storefile where storeIdx = #{storeIdx}
+	</select>
 </mapper>
 

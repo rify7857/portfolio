@@ -38,6 +38,10 @@ public class ReservationDAO {
 		int result = sqlSession.selectOne(namespace+".getTNumber",param);
 
 			return result;
-		
+	}
+	public ArrayList<ReservationVO> select(String memberId) {
+		List<ReservationVO> list = new ArrayList<ReservationVO>();
+		list = sqlSession.selectList(namespace+".selectList",memberId);
+		return (ArrayList<ReservationVO>)list;
 	}
 }

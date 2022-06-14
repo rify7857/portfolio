@@ -17,4 +17,5 @@ public interface StoreService {
 	public int insertFileResult(StoreVO vo);
 	public void fileSave(StoreVO vo, HttpServletRequest request);
 	public String getStoreIdx();
+	public StoreVO selectSufiles(String storeIdx);
 }

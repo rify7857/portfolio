@@ -25,4 +25,9 @@ public class ReservationServiceImpl implements ReservationService{
 		// TODO Auto-generated method stub
 		return reservationDao.getTNumber(storeIdx, rDate, rTime);
 	}
+	@Override
+	public ArrayList<ReservationVO> select(String memberId) {
+		// TODO Auto-generated method stub
+		return reservationDao.select(memberId);
+	}
 }

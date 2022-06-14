@@ -29,11 +29,11 @@
 						<td><textarea rows="10" id="question_content" name="questionContent"></textarea></td>
 					</tr>
 				</table>
+				</form>
 				<div class="question_btn">
-					<button type="submit" class="question_receive">보내기</button>
+					<button type="submit" class="question_receive" onclick="send()">보내기</button>
 					<button class="question_list" onclick="list()">목록</button>
 				</div>
-				</form>
 			</div>
 		</div>
 	</div>
