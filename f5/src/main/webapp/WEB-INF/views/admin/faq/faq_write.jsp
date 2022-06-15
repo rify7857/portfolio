@@ -68,11 +68,11 @@ function list() {
 						 placeholder="  내용을 입력해주세요." onfocus="this.placeholder=''" onblur="this.placeholder='  내용을 입력해주세요.'"></textarea>
 					</tr>
 				</table>
+				</form>
 				<div class="faq_btn">
 					<button class="faq_register" onclick="register()">등록</button>
 					<button class="faq_list" onclick="list()">목록</button>
 				</div>
-				</form>
 			</div>
 		</div>
 	</div>

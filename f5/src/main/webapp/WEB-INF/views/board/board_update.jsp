@@ -29,6 +29,7 @@
 				$("#board_content").focus();
 				return;
 			} else {
+				content = content.replace(/(?:\r\n|\r|\n)/g, '<br>');
 				update_form.submit();
 			}
 		});

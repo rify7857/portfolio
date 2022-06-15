@@ -16,17 +16,21 @@
 		
 		// 수정하기
 		$("#promote_update_btn").click(function(){
-			if( $("#promoteTitle").val() == "" ) {
+			
+			var title = $("#promoteTitle").val();
+			var content = $("#promoteContent").val();
+			
+			if( title == "" ) {
 				alert("홍보 제목을 입력해주세요.");
 				$("#promoteTitle").focus();
 				return;
-			} else if( $("#promoteContent").val() == "" ) {
+			} else if( content == "" ) {
 				alert("홍보 상세내용을 입력해주세요.");
 				$("#promoteContent").focus();
 				return;
 			} 
 			
-			
+			content = content.replace(/(?:\r\n|\r|\n)/g, '<br>');
 			promote_update_form.submit();
 			
 		});// 수정하기

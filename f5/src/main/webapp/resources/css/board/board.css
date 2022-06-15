@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+
+
 .list-table a,.reply-member a {
 	color: black !important;
 	text-decoration: none !important;
@@ -57,6 +59,12 @@
 	width: 8%;
 	
 
+}
+
+.btn-img {
+	width: 20px;
+	height: 20px;
+	background-color: white;
 }
 
 .cusbtn:hover {
@@ -191,6 +199,10 @@
 	
 }
 
+.board-content-container button {
+	background-color: white;
+}
+
 .content-title-div {
 	background-color: orange;
 }
@@ -214,7 +226,7 @@
 }
 
 .board-content img {
-	width: 80%;
+	max-width: 50%;
 }
 
 .board-info {
@@ -338,12 +350,6 @@
 }
 
 
-.board-content-container button:hover {
-	background-color: rgba(0,0,0,0.1);
-	transition: 0.3s;
-	
-}
-
 .reply-update {
 	display: none;
 }
@@ -379,7 +385,7 @@
 	width: 20%;
 	border: none;
 	border-radius: 5%;
-	background-color: orange;
+	background-color: orange !important;
 	color: #fff;
 }
 

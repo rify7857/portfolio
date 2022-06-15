@@ -36,8 +36,6 @@ public class AdminQuestionController {
 	@RequestMapping ( value = "admin/question_list.do", method = RequestMethod.GET, produces = "application/text; charset=UTF-8"  )
 	public ModelAndView admin_question_list(String rpage, String search, String search_type, String proceed) {
 		
-		adminBoardService.getInsertPageview("question_list");
-		
 		ModelAndView mv = new ModelAndView();
 		Map<String, String> param = null;	
 		List<Object> olist = null;
@@ -153,8 +151,6 @@ public class AdminQuestionController {
 	@RequestMapping ( value = "admin/question_content.do", method = RequestMethod.GET )
 	public ModelAndView admin_question_content(String idx, String rno) {
 		
-		adminBoardService.getInsertPageview("question_content");
-		
 		ModelAndView mv = new ModelAndView();
 		
 		AdminQuestionVO vo = (AdminQuestionVO) adminQuestionService.getContent(idx);
@@ -187,8 +183,6 @@ public class AdminQuestionController {
 	
 	@RequestMapping ( value = "admin/question_receive.do", method = RequestMethod.GET )
 	public ModelAndView admin_question_receive(String idx, String rno) {
-		
-		adminBoardService.getInsertPageview("question_receive");
 		
 		ModelAndView mv = new ModelAndView();
 		AdminQuestionVO vo = null;

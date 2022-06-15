@@ -43,8 +43,6 @@ public class AdminBoardController {
 	@RequestMapping ( value = "/admin/board_list.do", method = RequestMethod.GET )
 	public ModelAndView admin_board_list(String rpage, String search, String search_type) {
 		
-		adminBoardService.getInsertPageview("board_list");
-		
 		ModelAndView mv = new ModelAndView();
 		Map<String, String> param = null;
 		List<Object> olist = null;
@@ -89,8 +87,7 @@ public class AdminBoardController {
 	@ResponseBody
 	@RequestMapping ( value = "admin/board_search_list.do", method = RequestMethod.GET, produces = "application/text; charset=UTF-8" )
 	public String admin_board_search_list(String rpage, String search, String search_type) {
-		System.out.println(search);
-		System.out.println(search_type);
+		
 		Map<String, String> param = pageService.getSearchResult(search_type, search, rpage, "admin_board_search", adminBoardService);
 		
 		int startCount = Integer.parseInt( param.get("start") );
@@ -125,8 +122,6 @@ public class AdminBoardController {
 	
 	@RequestMapping ( value = "/admin/board_content.do", method = RequestMethod.GET )
 	public ModelAndView admin_board_content(String idx, String rno, HttpSession session) {
-		
-		adminBoardService.getInsertPageview("board_content");
 		
 		ModelAndView mv = new ModelAndView();
 		

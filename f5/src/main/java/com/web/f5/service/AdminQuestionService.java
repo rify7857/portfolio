@@ -29,4 +29,6 @@ public interface AdminQuestionService extends ObjService {
 	public int getAnsweringCnt();
 
 	public int getAnswerCompleteCnt();
+
+	public AdminQuestionVO getQuestionContent(String idx);
 }

@@ -1,5 +1,6 @@
 package com.web.f5.dao;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,6 +11,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.web.f5.vo.AdminMemberVO;
+import com.web.f5.vo.AdminQuestionVO;
+import com.web.f5.vo.BoardVO;
 import com.web.f5.vo.MemberVO;
 import com.web.f5.vo.StoreVO;
 
@@ -46,5 +49,40 @@ public class MemberDAO {
 	
 	public int memberUpdate(MemberVO vo) {
 		return sqlSession.update(namespace+".memberUpdate",vo);
+	}
+
+	public int getBoardCount(String memberId) {
+		
+		return sqlSession.selectOne(namespace + ".getBoardCount", memberId);
+	}
+
+	public List<Object> getBoardList(String memberId) {
+		
+		return sqlSession.selectList(namespace + ".getBoardList", memberId);
+	}
+
+	public List<Object> getQuestionList(String memberId) {
+		
+		return sqlSession.selectList(namespace + ".getQuestionList", memberId);
+	}
+
+	public int getQuestionCount(String memberId) {
+		
+		return sqlSession.selectOne(namespace +".getQuestionCount", memberId);
+	}
+
+	public AdminQuestionVO getQuestionContent(String idx) {
+		
+		return sqlSession.selectOne(namespace + ".getQuestionContent", idx);
+	}
+
+	public int getCEOrequest(String id) {
+		
+		return sqlSession.update(namespace + ".getCEOrequest", id);
+	}
+
+	public int getCEOcancel(String id) {
+		
+		return sqlSession.update(namespace + ".getCEOcancel", id);
 	}
 }

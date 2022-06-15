@@ -20,6 +20,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.web.f5.service.MemberService;
 import com.web.f5.vo.MemberVO;
+import com.web.f5.service.AdminBoardService;
 import com.web.f5.service.AdminMemberService;
 import com.web.f5.service.CEOService;
 import com.web.f5.service.ReservationService;
@@ -44,16 +45,22 @@ public class StoreController {
 	MemberService memberService;
 	@Autowired
 	CEOService CeoService;
-		
+	@Autowired
+	private AdminBoardService adminBoardService;
 
 		@RequestMapping(value = "/store_join.do", method = RequestMethod.GET)
 		public String Store_join() {
+			
+			adminBoardService.getInsertPageview("store_join");
 			
 			return "store/store_join";
 		}
 	
 		@RequestMapping(value = "/store.do" , method = RequestMethod.GET)
 		public ModelAndView store(String rpage) {
+			
+			adminBoardService.getInsertPageview("store");
+			
 			ModelAndView mv = new ModelAndView();
 			int startCount = 0;
 			int endCount = 0;
@@ -88,6 +95,9 @@ public class StoreController {
 	
 		@RequestMapping(value = "/store_information.do" , method = RequestMethod.GET)
 		public ModelAndView store_infor(String storeIdx,String rpage,HttpSession session) {
+			
+			adminBoardService.getInsertPageview("store_info");
+			
 			StoreVO vo = new StoreVO();
 			ModelAndView mv = new ModelAndView();
 			

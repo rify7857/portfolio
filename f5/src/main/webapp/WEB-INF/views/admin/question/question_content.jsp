@@ -29,13 +29,13 @@ function list() {
 						<td><label>보낸사람</label></td>
 					</tr>
 					<tr>
-						<td><input type="text" id="sender" value="${ vo.memberId }"></td>
+						<td><input type="text" id="sender" value="${ vo.memberId }" readonly="readonly"></td>
 					</tr>
 					<tr>
 						<td><label>내용</label></td>
 					</tr>
 					<tr>
-						<td><textarea rows="10" id="question_content">${ vo.questionContent }</textarea></td>
+						<td><textarea rows="10" id="question_content" readonly="readonly">${ vo.questionContent }</textarea></td>
 					</tr>
 				</table>
 				<div class="question_btn">

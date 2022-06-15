@@ -252,7 +252,7 @@
                     </div>
                     <!-- Side widget-->
                     <div class="card mb-4">
-                        <div class="card-header">이런 검색어는 어떄요?</div>
+                        <div class="card-header">이런 검색어는 어때요?</div>
                        <div class = "card-body"> 
                         <div class="card-body">
                         	<div><a href = "#">짜장면 맛집 모아보기!</a></div>

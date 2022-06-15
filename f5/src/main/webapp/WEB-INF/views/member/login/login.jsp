@@ -145,8 +145,9 @@ const naverLogin = new naver.LoginWithNaverId(
 			<!-- 카카오 스크립트 -->
 			<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 			<script>
-Kakao.init('196685263f4cd00c83c3569bec45c7a3'); //발급받은 키 중 javascript키를 사용해준다.
+Kakao.init('c88216da6af0d0b0fef722865614d397'); //발급받은 키 중 javascript키를 사용해준다.
 console.log(Kakao.isInitialized()); // sdk초기화여부판단
+
 //카카오로그인
 function kakaoLogin() {
     Kakao.Auth.login({

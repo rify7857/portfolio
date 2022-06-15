@@ -437,13 +437,20 @@
 	
 	<select id="questionContent" parameterType="java.lang.String" resultType="com.web.f5.vo.AdminQuestionVO">
 		select
-		    a.questionIdx, a.questionTitle, a.questionContent, a.questionProceed, b.memberId, b.memberEmail
+		    a.questionIdx, a.questionTitle, a.questionContent, a.questionProceed, a.questionAnswer, b.memberId, b.memberEmail
 		from
 			question a inner join member b
 		on
 			a.memberId = b.memberId
 		where
 			a.questionIdx = #{questionIdx}
+	</select>
+	
+	<select id="getQuestionContent" parameterType="java.lang.String" resultType="com.web.f5.vo.AdminQuestionVO">
+		select questionIdx, questionTitle, questionContent, questionAnswer, questionProceed, questionDate, memberId
+		from question
+		where
+		questionIdx = #{questionIdx}
 	</select>
 	
 	<insert id="insert" parameterType="com.web.f5.vo.AdminQuestionVO">

@@ -15,17 +15,23 @@
 	
 	$(document).ready(function(){
 		
+		
 		// 홍보 추가
 		$("#promote_insert_btn").click(function(){
-			if( $("#promote_title").val() == "" ) {
+			
+			var title = $("#promote_title").val();
+			var content = $("#promote_content").val();
+			
+			if( title == "" ) {
 				alert("홍보 제목을 입력해주세요.");
 				$("#promote_title").focus();
 				return;
-			} else if( $("#promote_content").val() == "" ) {
+			} else if( content == "" ) {
 				alert("홍보 상세내용을 입력해주세요.");
 				$("#promote_content").focus();
 				return;
 			}
+			content = content.replace(/(?:\r\n|\r|\n)/g, '<br>');
 			promote_write_form.submit();
 			
 		}); // 홍보 추가
@@ -54,6 +60,7 @@
 		$(".pre-reshow").click(function() {
 			var title = $("#promote_title").val();
 			var content = $("#promote_content").val();
+			
 			$(".pre-title").text(title);
 			$(".pre-content").text(content);
 		});// 미리보기 업데이트

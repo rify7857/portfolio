@@ -15,7 +15,6 @@
 	$(document).ready(function() {
 		
 		
-		
 		$(".board_write").click(function() {
 			var title = $("#board_title").val();
 			var content = $("#board_content").val();
@@ -29,6 +28,7 @@
 				$("#board_content").focus();
 				return;
 			} else {
+				content = content.replace(/(?:\r\n|\r|\n)/g, '<br>');
 				boardWrite.submit();
 			}
 		});

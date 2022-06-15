@@ -259,40 +259,40 @@ $(document).ready(function(){
 	
 	
 	
-// 	$("#chk").click(function() {
+	$("#chk").click(function() {
 		
-// 		if($("#chk").is(":checked")){
+		if($("#chk").is(":checked")){
 			
-// 			$("input[name=chk]").prop("checked", true);
-// 			$("input[name=chk]").val(1);
-// 		} else {
+			$("input[name=chk]").prop("checked", true);
+			$("input[name=chk]").val(1);
+		} else {
 			
-// 			$("input[name=chk]").prop("checked", false);
-// 			$("input[name=chk]").val(0);
-// 		}
-// 	});
+			$("input[name=chk]").prop("checked", false);
+			$("input[name=chk]").val(0);
+		}
+	});
 	
-// 	$("input[name=chk]").click(function() {
+	$("input[name=chk]").click(function() {
 		
-// 		var total = $("input[name=chk]").length;
-// 		var checked = $("input[name=chk]:checked").length;
+		var total = $("input[name=chk]").length;
+		var checked = $("input[name=chk]:checked").length;
 		
-// 		if(total != checked) {
+		if(total != checked) {
 			
-// 			$("#chk").prop("checked", false);
-// 		} else {
+			$("#chk").prop("checked", false);
+		} else {
 			
-// 			$("#chk").prop("checked", true); 
-// 		}
+			$("#chk").prop("checked", true); 
+		}
 		
-// 		if ( $(this).val() == "0" ) {
+		if ( $(this).val() == "0" ) {
 			
-// 			$(this).val(1);
-// 		} else {
+			$(this).val(1);
+		} else {
 			
-// 			$(this).val(0);
-// 		}
-// 	});
+			$(this).val(0);
+		}
+	});
 });
 </script>
 </head>

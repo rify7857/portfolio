@@ -159,7 +159,7 @@
 					},
 					success : function(data) {
 						if($("#reco_"+boardIdx).val() == '2') {
-							$("#reco_"+boardIdx).css("background-color","white");
+							$("#reco_"+boardIdx).children().first().attr("src","/f5/resources/images/thumbs-up.png");
 							$("#reco_"+boardIdx).val('0');
 							brecoVal -= 1;
 							$("#board_reco_"+boardIdx).text(brecoVal);
@@ -168,8 +168,8 @@
 							if( $("#reco_"+boardIdx).val() == '0' && $("#deco_"+boardIdx).val() =='2' ) {							
 								bdecoVal -= 1;							
 							}
-							$("#reco_"+boardIdx).css("background-color","red");
-							$("#deco_"+boardIdx).css("background-color","white");
+							$("#reco_"+boardIdx).children().first().attr("src","/f5/resources/images/thumbs-up-click.png");
+							$("#deco_"+boardIdx).children().first().attr("src","/f5/resources/images/thumbs-down.png");
 							$("#deco_"+boardIdx).val('1');
 							$("#reco_"+boardIdx).val('2');
 							$("#board_reco_"+boardIdx).text(brecoVal);
@@ -210,7 +210,7 @@
 					},
 					success : function(data) {
 						if($("#deco_"+boardIdx).val() =='2') {
-							$("#deco_"+boardIdx).css("background-color","white");
+							$("#deco_"+boardIdx).children().first().attr("src","/f5/resources/images/thumbs-down.png");
 							$("#deco_"+boardIdx).val('1');
 							bdecoVal -= 1;
 							$("#board_deco_"+boardIdx).text(bdecoVal);
@@ -219,8 +219,8 @@
 								brecoVal -= 1;
 							}
 							bdecoVal += 1;
-							$("#deco_"+boardIdx).css("background-color","red");
-							$("#reco_"+boardIdx).css("background-color","white");
+							$("#deco_"+boardIdx).children().first().attr("src","/f5/resources/images/thumbs-down-click.png");
+							$("#reco_"+boardIdx).children().first().attr("src","/f5/resources/images/thumbs-up.png");
 							$("#reco_"+boardIdx).val('0');
 							$("#deco_"+boardIdx).val('2');
 							$("#board_reco_"+boardIdx).text(brecoVal);
@@ -269,7 +269,7 @@
 					success : function(data) {
 						
 						if($("#re_reco_"+replyIdx).val() == '2') {
-							$("#re_reco_"+replyIdx).css("background-color","white");
+							$("#re_reco_"+replyIdx).children().first().attr("src","/f5/resources/images/thumbs-up.png");
 							$("#re_reco_"+replyIdx).val('0');
 							recoVal -= 1;
 							$("#reply_reco_"+replyIdx).text(recoVal);
@@ -280,8 +280,8 @@
 							if( $("#re_reco_"+replyIdx).val() == '0' && $("#de_reco_"+replyIdx).val() =='2' ) {							
 								decoVal -= 1;							
 							}
-							$("#re_reco_"+replyIdx).css("background-color","red");
-							$("#de_reco_"+replyIdx).css("background-color","white");
+							$("#re_reco_"+replyIdx).children().first().attr("src","/f5/resources/images/thumbs-up-click.png");
+							$("#de_reco_"+replyIdx).children().first().attr("src","/f5/resources/images/thumbs-down.png");
 							$("#de_reco_"+replyIdx).val('1');
 							$("#re_reco_"+replyIdx).val('2');
 							$("#reply_reco_"+replyIdx).text(recoVal);
@@ -322,7 +322,7 @@
 					},
 					success : function(data) {
 						if($("#de_reco_"+replyIdx).val() =='2') {
-							$("#de_reco_"+replyIdx).css("background-color","white");
+							$("#de_reco_"+replyIdx).children().first().attr("src","/f5/resources/images/thumbs-down.png");
 							$("#de_reco_"+replyIdx).val('1');
 							decoVal -= 1;
 							$("#reply_deco_"+replyIdx).text(decoVal);
@@ -332,8 +332,8 @@
 								recoVal -= 1;
 							}
 							decoVal += 1;
-							$("#de_reco_"+replyIdx).css("background-color","red");
-							$("#re_reco_"+replyIdx).css("background-color","white");
+							$("#de_reco_"+replyIdx).children().first().attr("src","/f5/resources/images/thumbs-down-click.png");
+							$("#re_reco_"+replyIdx).children().first().attr("src","/f5/resources/images/thumbs-up.png");
 							$("#re_reco_"+replyIdx).val('0');
 							$("#de_reco_"+replyIdx).val('2');
 							$("#reply_reco_"+replyIdx).text(recoVal);
@@ -400,10 +400,14 @@
 						<dl>
 						<c:choose>
 							<c:when test="${brvo.boardRecommendCheck eq '0'}">
-								<button style="background-color: red" class="recommend_btn" id="reco_${vo.boardIdx }" value='2'>추천</button>
+								<button class="recommend_btn" id="reco_${vo.boardIdx }" value='2'>
+									<img class="btn-img" src="/f5/resources/images/thumbs-up-click.png">
+								</button>
 							</c:when>
 							<c:otherwise>
-								<button style="background-color: white" class="recommend_btn" id="reco_${vo.boardIdx }" value='0'>추천</button>
+								<button class="recommend_btn" id="reco_${vo.boardIdx }" value='0'>
+									<img class="btn-img" src="/f5/resources/images/thumbs-up.png">
+								</button>
 							</c:otherwise>
 						</c:choose>
 							<dd id="board_reco_${vo.boardIdx }">${reco }</dd>
@@ -411,10 +415,14 @@
 						<dl>
 						<c:choose>
 							<c:when test="${brvo.boardRecommendCheck eq '1'}">
-								<button style="background-color: red" class="derecommend_btn" id="deco_${vo.boardIdx }" value='2'>비추천</button>
+								<button class="derecommend_btn" id="deco_${vo.boardIdx }" value='2'>
+									<img class="btn-img" src="/f5/resources/images/thumbs-down-click.png">
+								</button>
 							</c:when>
 							<c:otherwise>
-								<button style="background-color: white" class="derecommend_btn" id="deco_${vo.boardIdx }" value='1'>비추천</button>
+								<button class="derecommend_btn" id="deco_${vo.boardIdx }" value='1'>
+									<img class="btn-img" src="/f5/resources/images/thumbs-down.png">
+								</button>
 							</c:otherwise>
 						</c:choose>
 							<dd id="board_deco_${vo.boardIdx }">${deco }</dd>
@@ -499,10 +507,14 @@
 											<dt>
 											<c:choose>
 												<c:when test="${list.replyRecommendCheck eq '0'}">
-													<button style="background-color: red" class="re_recommend_btn" id="re_reco_${list.replyIdx }" value='2'>추천</button>
+													<button class="re_recommend_btn" id="re_reco_${list.replyIdx }" value='2'>
+														<img class="btn-img" src="/f5/resources/images/thumbs-up-click.png">
+													</button>
 												</c:when>
 												<c:otherwise>
-													<button style="background-color: white" class="re_recommend_btn" id="re_reco_${list.replyIdx }" value='0'>추천</button>
+													<button class="re_recommend_btn" id="re_reco_${list.replyIdx }" value='0'>
+														<img class="btn-img" src="/f5/resources/images/thumbs-up.png">
+													</button>
 												</c:otherwise>
 											</c:choose>
 											</dt>
@@ -512,10 +524,14 @@
 											<dt>
 												<c:choose>
 												<c:when test="${list.replyRecommendCheck eq '1'}">
-													<button style="background-color: red" class="re_derecommend_btn" id="de_reco_${list.replyIdx }" value='2'>비추천</button>
+													<button class="re_derecommend_btn" id="de_reco_${list.replyIdx }" value='2'>
+														<img class="btn-img" src="/f5/resources/images/thumbs-down-click.png">
+													</button>
 												</c:when>
 												<c:otherwise>
-													<button style="background-color: white" class="re_derecommend_btn" id="de_reco_${list.replyIdx }" value='1'>비추천</button>
+													<button class="re_derecommend_btn" id="de_reco_${list.replyIdx }" value='1'>
+														<img class="btn-img" src="/f5/resources/images/thumbs-down.png">
+													</button>
 												</c:otherwise>
 											</c:choose>
 											</dt>

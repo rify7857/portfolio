@@ -2,7 +2,15 @@
 th{
 	padding: 50px;
 }
-
+thead,
+tbody,
+tfoot,
+tr,
+td,
+th{
+	border:none !important;
+	text-align: left !important;
+}
 .profile{
 	margin: 0 auto;
 	width: 100px;
@@ -25,138 +33,269 @@ th{
 	text-align: center;
 }
 
-/* 입력폼 */
-#content{
-	width: 500px;
-	margin: auto;
+table {
+	width: 100%;
+	border-collapse: collapse;
 }
 
-h3 {
-    margin: 19px 0 8px;
-    font-size: 14px;
-    font-weight: 700;
+#postcode {
+	width: 30% !important;
 }
 
+.addr_btn {
+	width: 40% !important;
+	background-color: brown;
+	color: #fff;
+	border: none;
+	border-radius: 5%;
+}
 
-.box {
-    display: block;
+#address {
+	width: 100% !important;
+}
+
+#detailAddress {
+	width: 60% !important;
+}
+
+#extraAddress {
+	width: 35% !important;
+}
+
+.CEOreq, .CEOcancel {
+	background-color: oldlace;
+	border-radius: 5%;
+}
+
+/*-----------------------------------------------------------------------
+
+ 								PC 
+ 								
+ ------------------------------------------------------------------------*/
+@media (min-width : 767.9999px) {
+
+#content {
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+#content h4 {
+    width: 35% !important;
+    margin: 5% 15%;
+}
+
+#member_update_table {
+	width: 50%;
+	margin: 0 auto;
+}
+
+#member_update_table tr td > label {
+	float: left;
+}
+
+#member_update_table input {
+	width: 100%;
+}
+
+#member_update_table input#id {
+	width: 100% !important;
+}
+
+#member_update_table #idChk {
+	border: none;
+	border-radius: 5%;
+	background-color: brown;
+	color: #fff;
+}
+
+#member_update_table input#year {
+	width: 30%;
+}
+
+#member_update_table #gender {
+	width: 100%;
+}
+
+.table_btn {
+	text-align: center;
+	margin: 5% 0;
+}
+
+.table_btn button {
+	margin: 0 3%;
+	width: 20%;
+}
+
+.table_btn .update {
+	background-color: brown;
+	color: #fff;
+	border: none;
+	border-radius: 5%;
+}
+
+.table_btn .list {
+	background-color: orange;
+	color: #fff;
+	border: none;
+	border-radius: 5%;
+}
+
+}
+
+/*-----------------------------------------------------------------------
+
+ 								tablet 
+ 								
+ ------------------------------------------------------------------------*/
+@media (max-width : 767.9998px) {
+
+#content {
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+#content h4 {
+	border-bottom: 1px solid;
+    width: 45% !important;
+    margin-bottom: 5%;
+}
+
+#member_update_table {
+	width: 80%;
+	margin: 0 auto;
+}
+
+#member_update_table tr td > label {
+	float: left;
+}
+
+#member_update_table input {
+	width: 100%;
+}
+
+#member_update_table input#id {
+	width: 70% !important;
+}
+
+#member_update_table #idChk {
+	border: none;
+	border-radius: 5%;
+	background-color: brown;
+	color: #fff;
+}
+
+#member_update_table input#year {
+	width: 30%;
+}
+
+#member_update_table #gender {
+	width: 100%;
+}
+
+.table_btn {
+	text-align: center;
+	margin: 5% 0;
+}
+
+.table_btn button {
+	margin: 0 3%;
+	width: 30%;
+}
+
+.table_btn .insert {
+	background-color: brown;
+	color: #fff;
+	border: none;
+	border-radius: 5%;
+}
+
+.table_btn .list {
+	background-color: orange;
+	color: #fff;
+	border: none;
+	border-radius: 5%;
+}
+
+}
+/*-----------------------------------------------------------------------
+
+ 								mobile 
+ 								
+ ------------------------------------------------------------------------*/
+@media (max-width : 425.9998px) {
+
+#content {
+    height: 100%;
     width: 100%;
-    height: 30px;
-    border: solid 1px #dadada;
-    padding: 2px 14px 2px 14px;
-    box-sizing: border-box;
-    background: #fff;
-    position: relative;
-    border-radius: 5px 5px;
+    margin: 0 auto;
 }
 
-.int {
-    display: block;
-    position: relative;
-    width: 100%;
-    height: 23px;
-    border: none;
-    background: #fff;
-    font-size: 15px;
+#content h4 {
+	border-bottom: 1px solid;
+    width: 75% !important;
+    margin-bottom: 5%;
 }
 
-input {
-    font-family: Dotum,'돋움',Helvetica,sans-serif;    
+#member_update_table {
+	width: 80%;
+	margin: 0 auto;
 }
 
-.box.int_id {
-    padding-right: 110px;
-    width: 500px;
+#member_update_table tr td > label {
+	float: left;
 }
 
-.box.int_pass {
-    padding-right: 40px;
-    width: 500px;
+#member_update_table input {
+	width: 100%;
 }
 
-.box.int_pass_check {
-    padding-right: 40px;
-    width: 500px;
+#member_update_table input#id {
+	width: 70% !important;
 }
 
-
-
-.pswdImg {
-    width: 18px;
-    height: 20px;
-    display: inline-block;
-    position: absolute;
-    top: 50%;
-    right: 16px;
-    margin-top: -10px;
-    cursor: pointer;
+#member_update_table #idChk {
+	border: none;
+	border-radius: 5%;
+	background-color: brown;
+	color: #fff;
 }
 
-#bir_wrap {
-    display: table;
-    width: 500px;
+#member_update_table input#year {
+	width: 30%;
 }
 
-#bir_yy {
-    display: table-cell;
-    width: 25px;
-    
+#member_update_table #gender {
+	width: 100%;
 }
 
-#bir_mm, #bir_dd {
-    padding-left: 10px;
-    display: table-cell;
-    width: 25px;
-    vertical-align: middle;
+#member_table {
+	font-size: 10px;
 }
 
-select {
-    width: 100%;
-    height: 25px;
-    font-size: 15px;
-    background: #fff url(https://static.nid.naver.com/images/join/pc/sel_arr_2x.gif) 100% 50% no-repeat;
-    background-size: 20px 8px;
-    -webkit-appearance: none;
-    display: inline-block;
-    text-align: start;
-    border: none;
-    cursor: default;
-    font-family: Dotum,'돋움',Helvetica,sans-serif;
+.table_btn {
+	text-align: center;
+	margin: 5% 0;
 }
 
-/* 에러메세지 */
-
-.error_next_box {
-    margin-top: 9px;
-    font-size: 12px;
-    color: red;    
-    display: none;
+.table_btn button {
+	margin: 0 3%;
+	width: 30%;
 }
 
-#alertTxt {
-    position: absolute;
-    top: 19px;
-    right: 38px;
-    font-size: 12px;
-    color: red;
-    display: none;
+.table_btn .update {
+	background-color: brown;
+	color: #fff;
+	border: none;
+	border-radius: 5%;
 }
 
-/* 버튼 */
-
-.btn_area {
-    margin: 30px 0 91px;
+.table_btn .list {
+	background-color: orange;
+	color: #fff;
+	border: none;
+	border-radius: 5%;
 }
 
-#btnJoin {
-    width: 245px;
-    padding: 7px 23px 10px;
-    border: 0;
-    border-radius: 13px 13px;
-    cursor: pointer;
-    color: #fff;
-    background-color: #872600;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: Gulim,'굴림';
 }

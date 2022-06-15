@@ -123,4 +123,10 @@ public class AdminQuestionServiceImpl implements AdminQuestionService {
 		
 		return adminQuestionDAO.getAnswerCompleteCnt();
 	}
+
+	@Override
+	public AdminQuestionVO getQuestionContent(String idx) {
+		
+		return adminQuestionDAO.getQuestionContent(idx);
+	}
 }

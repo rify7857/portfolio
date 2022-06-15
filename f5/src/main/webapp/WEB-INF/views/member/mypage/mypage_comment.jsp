@@ -8,6 +8,7 @@
 	rel="stylesheet" />
 <link href="/f5/resources/css/member/common.css" rel="stylesheet" />
 <link href="/f5/resources/css/main/index.css" rel="stylesheet" />
+<script src="/f5/resources/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 		
 	function showPopup(hasFilter) {
@@ -27,6 +28,29 @@
 		popup.classList.add('hide');
 	}
 
+$(document).ready(function(){
+	$(document).on('click',".popup_btn1",function(){
+		var idx = $(".reviewIdx").attr("id");
+		var content = $(".reviewcontent").val();
+		var score = $(".score").val();
+		const popup = document.querySelector('#popup');
+		console.log(content);
+		$.ajax({
+			url : "reviewUpdate.do?idx="+idx+"&content="+content+"&score="+score,
+			success : function(msg) {
+				
+				if ( msg == "succ" ) {
+					popup.classList.add('hide');
+					location.reload();
+				} else {
+					alert("error");
+				}
+			}
+		});
+	});// .popup_btn1
+	
+	
+});
 </script>
 </head>
 <body>
@@ -54,7 +78,7 @@
 					<th>변경사항</th>
 				</tr>
 				<c:forEach var="rvo"  items="${list}">
-				<tr>
+				<tr id=${ rvo.reviewIdx } class="reviewIdx">
 					<td>${rvo.storeName }</td>
 					<td>${rvo.reviewContent }</td>
 					<td>${rvo.reviewScore }</td>
@@ -96,15 +120,15 @@
 					<div class="pop_name">
 					<h3>Store Name<h3>
 					</div>
-					<p>내용 : <input type="text"></p>
-					<p>평점 : <select id="store_score">
+					<p>내용 : <input type="text" class="reviewcontent"></p>
+					<p>평점 : <select id="store_score" class="score">
 									<option value=1>★</option>
 									<option value=2>★★</option>
 									<option value=3>★★★</option>
 									<option value=4>★★★★</option>
 									<option value=5>★★★★★</option>
 							</select></p>
-					<button class="popup_btn1" onclick="">수정하기</button>
+					<button class="popup_btn1">수정하기</button>
 					<button class="popup_btn2" onclick="closePopup()">취소하기</button>
 				</div>
 			</div>

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,26 +11,6 @@
 <!-- datepicker -->
 <link rel="stylesheet"href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script type="text/javaScript"  defer="defer">
- $(document).ready(function(){
-	$("#gender").val('${vo.memberGender}').prop("selected",true);
- 	/* for(var i = 1; i<=31 ; i++){
- 		var option = $("<option value='"+i+"'>"+i+"</option>");
-        $('#dd').append(option);
- 	} */
- 	$('#pwHint').val('${vo.memberPassHint}').prop("selected",true);
- 	
-/*  	 var date = new Date(); 
-     
- 	for(var i = 1980; i<=date.getFullYear() ; i++){
- 		var option = $("<option value='"+i+"'>"+i+"</option>");
-        $('#yy').append(option);
- 	}
-	 */
-		$('#store-update').on("click",function(){
-			 $(location).attr('href', "http://localhost:9000/f5/store_join_update.do?memberId=${sessionScope.memberId}");
-		});
-}); 
-
 
 function btnYes() {
 	
@@ -124,24 +104,42 @@ function execDaumPostcode() {
         }
     }).open();
 }
-/* $(function() {
-	  $(".datepicker1").datepicker({
-	    dateFormat: 'yy-mm-dd',
-	    prevText: '이전 달',
-	    nextText: '다음 달',
-	    monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-	    monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-	    dayNames: ['일','월','화','수','목','금','토'],
-	    dayNamesShort: ['일','월','화','수','목','금','토'],
-	    dayNamesMin: ['일','월','화','수','목','금','토'],
-	    yearRange: 'c-100:c+10',
-	    minDate: '-100y',
-	    yearSuffix: '년',
-	    showMonthAfterYear: true,
-	    changeMonth: true,
-	    changeYear: true
-	  });
-	}); */
+$(document).ready(function(){
+	
+	$(".CEOreq").click(function(){
+		var id = $("#id").val();
+		$.ajax({
+			url : "CEOrequest.do?id="+id,
+			success : function(msg) {
+				
+				if ( msg == "succ" ) {
+					console.log("asdf");
+					alert("CEO신청이 완료되었습니다.");
+					location.reload();
+				} else {
+					
+					alert("error");
+				}
+			}
+		});
+	});
+	
+	$(".CEOcancel").click(function(){
+		var id = $("#id").val();
+		$.ajax({
+			url : "CEOcancel.do?id="+id,
+			success : function(msg){
+				
+				if(msg == "succ") {
+					alert("CEO신청이 취소되었습니다.");
+					location.reload();
+				} else {
+					alert("error");
+				}
+			}
+		});
+	});
+});
 </script>
 </head>
 <body>
@@ -171,198 +169,112 @@ function execDaumPostcode() {
 
 			<!-- ID -->
 			<form name="memberUpdate" action="memberUpdate.do" method="post">
-			<div>
-				<h3 class="join_title">
-					<label for="id">아이디</label>
-				</h3>
-				<span class="box int_id"> <input type="text" id="id"
-					class="int" maxlength="20" placeholder="${vo.memberId }" name="memberId" readonly="readonly">
-				</span> <span class="error_next_box"></span>
-			</div>
-
-			<!-- PW1 -->
-			<div>
-				<h3 class="join_title">
-					<label for="pswd1">비밀번호</label>
-				</h3>
-				<span class="box int_pass"> <input type="text" id="pswd1"
-					class="int" maxlength="20" name="memberPass"> <span id="alertTxt">사용불가</span>
-					<img src="/f5/resources/images/m_icon_pass.png" id="pswd1_img1"
-					class="pswdImg">
-				</span> <span class="error_next_box"></span>
-			</div>
-
-			<!-- PW2 -->
-			<div>
-				<h3 class="join_title">
-					<label for="pswd2">비밀번호 재확인</label>
-				</h3>
-				<span class="box int_pass_check"> <input type="text"
-					id="pswd2" class="int" maxlength="20"> <img
-					src="/f5/resources/images/m_icon_check_disable.png" id="pswd2_img1"
-					class="pswdImg">
-				</span> <span class="error_next_box"></span>
-			</div>
-
-			<!-- NAME -->
-			<div>
-				<h3 class="join_title">
-					<label for="name">이름</label>
-				</h3>
-				<span class="box int_name"> <input type="text" id="name"
-					class="int" maxlength="20" placeholder="${vo.memberName }" name="memberName">
-				</span> <span class="error_next_box"></span>
-			</div>
-			<table>
-				<tr>
-					<td><label>생년월일</label></td>
-				</tr>
-				<tr>
-					<td><input type="text" class="datepicker1" id="birth"
-						name="memberBirth" readonly value="${vo.memberBirth }" name="memberBirth"></td>
-				</tr>
-			</table>
-			 	<!-- BIRTH -->
-<!-- 			<div>
-				<h3 class="join_title">
-					<label for="yy">생년월일</label>
-				</h3>
-
-				<div id="bir_wrap">
-					BIRTH_YY
-					<div id="bir_yy">
-						<span class="box"> <select id="yy" class="sel">
-								<option>년도</option>
-						</select>
-						</span>
-					</div>
-
-					BIRTH_MM
-					<div id="bir_mm">
-						<span class="box"> <select id="mm" class="sel">
-								<option>월</option>
-								<option value="01">1</option>
-								<option value="02">2</option>
-								<option value="03">3</option>
-								<option value="04">4</option>
-								<option value="05">5</option>
-								<option value="06">6</option>
-								<option value="07">7</option>
-								<option value="08">8</option>
-								<option value="09">9</option>
-								<option value="10">10</option>
-								<option value="11">11</option>
-								<option value="12">12</option>
-						</select>
-						</span>
-					</div>
-
-					BIRTH_DD
-					<div id="bir_dd">
-						<span class="box"> <input type="text" id="dd" class="int"
-							maxlength="2" placeholder="일"> <select id="dd"
-							class="sel">
-								<option>일</option>
-
-						</select>
-						</span>
-					</div>
-
+				<table id="member_update_table">
+					<tr>
+						<td><label>아이디</label></td>
+					</tr>
+					<tr>
+						<td>
+							<input type="text" id="id" name="memberId" value="${ vo.memberId }" readonly="readonly"
+							placeholder="  아이디를 입력해주세요." onfocus="this.placeholder=''" onblur="this.placeholder='  아이디를 입력해주세요.'">
+						</td>
+					</tr>
+					<tr>
+						<td><label>비밀번호 힌트</label></td>
+					</tr>
+					<tr>
+						<td>
+							<select id="pwHint" name="memberPassHint">
+								<option value="0" <c:if test="${ vo.memberPassHint eq '0' }">selected</c:if>>--비밀번호 힌트--</option>
+								<option value="1" <c:if test="${ vo.memberPassHint eq '1' }">selected</c:if>>출신학교</option>
+								<option value="2" <c:if test="${ vo.memberPassHint eq '2' }">selected</c:if>>별명</option>
+								<option value="3" <c:if test="${ vo.memberPassHint eq '3' }">selected</c:if>>기억에 남는 장소</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td><label>비밀번호 힌트 답변</label></td>
+					</tr>
+					<tr>
+						<td>
+							<input type="text" id="pwHintAnswer" name="memberPassHintAnswer"
+							value="${ vo.memberPassHintAnswer }">
+						</td>
+					</tr>
+					<tr>
+						<td><label>이름</label></td>
+					</tr>
+					<tr>
+						<td>
+							<input type="text" id="name" name="memberName" readonly="readonly"
+							value="${ vo.memberName }">
+						</td>
+					</tr>
+					<tr>
+						<td><label>생년월일</label></td>
+					</tr>
+					<tr>
+						<td>
+							<input type="text" class="datepicker1" id="birth" name="memberBirth" readonly="readonly"
+							value="${ vo.memberBirth }">
+						</td>
+					</tr>
+					<tr>
+						<td><label>성별</label></td>
+					</tr>
+					<tr>
+						<td>
+							<select id="gender" name="memberGender">
+								<option value="0" <c:if test="${ vo.memberGender eq '0' }">selected</c:if>>성별을 선택하세요</option>
+								<option value="1" <c:if test="${ vo.memberGender eq '1' }">selected</c:if>>남자</option>
+								<option value="2" <c:if test="${ vo.memberGender eq '2' }">selected</c:if>>여자</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td><label>휴대전화</label></td>
+					</tr>
+					<tr>
+						<td><input type="text" id="tel" name="memberTel"
+						value="${ vo.memberTel }"></td>
+					</tr>
+					<tr>
+						<td><label>본인확인 이메일</label></td>
+					</tr>
+					<tr>
+						<td><input type="text" id="email" name="memberEmail"
+						value="${ vo.memberEmail }"></td>
+					</tr>
+					<tr>
+						<td><label>주소</label></td>
+					</tr>
+					<tr>
+						<td>
+							<input type="text" id="postcode" placeholder="우편번호" readonly="readonly" name="postcode"
+							value="${ vo.postcode }">
+							<input type="button" class="addr_btn" onclick="execDaumPostcode()" value="우편번호 찾기" disabled="disabled"><br>
+							<input type="text" id="address" placeholder="주소"readonly="readonly" name="address"
+							value="${ vo.address }"><br>
+							<input type="text" id="detailAddress" placeholder="상세주소" name="detailAddress"
+							value="${ vo.detailAddress }">
+							<input type="text" id="extraAddress" placeholder="참고항목" readonly="readonly" name="extraAddress"
+							value="${ vo.extraAddress }">
+						</td>
+					</tr>
+				</table>
+				<div class="table_btn">
+					<button type="submit" class="update">수정</button>
+					<a href="mypage.do"><button type="button" class="list">취소하기</button></a>
+					<c:if test="${ vo.memberAuthority eq '0' }">
+					<button type="button" class="CEOreq">CEO신청</button>
+					</c:if>
+					<c:if test="${ vo.memberAuthority eq '4' }">
+					<button type="button" class="CEOcancel">CEO취소</button>
+					</c:if>
 				</div>
-				<span class="error_next_box"></span>
-			</div>
-			 -->
-			<!-- GENDER -->
-			<div>
-				<h3 class="join_title">
-					<label for="gender">성별</label>
-				</h3>
-				<span class="box gender_code"> <select id="gender"
-					class="sel" name="memberGender">
-						<option>성별</option>
-						<option value="1">남자</option>
-						<option value="2">여자</option>
-				</select>
-				</span> <span class="error_next_box">필수 정보입니다.</span>
-			</div>
-
-			<!-- EMAIL -->
-			<div>
-				<h3 class="join_title">
-					<label for="email">본인확인 이메일<span class="optional">(선택)</span></label>
-				</h3>
-				<span class="box int_email"> <input type="text" id="email"
-					class="int" maxlength="100" placeholder="${vo.memberEmail }" name="memberEmail">
-				</span> <span class="error_next_box">이메일 주소를 다시 확인해주세요.</span>
-			</div>
-
-			<!-- MOBILE -->
-			<div>
-				<h3 class="join_title">
-					<label for="phoneNo">휴대전화</label>
-				</h3>
-				<span class="box int_mobile"> <input type="tel" id="mobile"
-					class="int" maxlength="16" placeholder="${vo.memberTel }" name="memberTel">
-				</span> <span class="error_next_box"></span>
-			</div>
-			<table>
-				<tr>
-					<td><label>주소</label></td>
-				</tr>
-				<tr>
-					<td><input type="text" id="postcode" placeholder="${vo.postcode }"
-						readonly="readonly" name="postcode"> <input type="button"
-						class="addr_btn" onclick="execDaumPostcode()" value="주소찾기"><br>
-						<input type="text" id="address" placeholder="${vo.address}"
-						readonly="readonly" name="address"><br> <input
-						type="text" id="detailAddress" placeholder="${vo.detailAddress}"
-						name="detailAddress"> <input type="text" id="extraAddress"
-						placeholder="${vo.extraAddress }" readonly="readonly" name="extraAddress">
-					</td>
-				</tr>
-			</table>
-			
-			<div>
-				<h3 class="join_title">
-					<label for="hint">비밀번호힌트</label>
-				</h3>
-				<span class="box int_mobile">
-					<select id="pwHint" name="memberPassHint">
-						<option value="0" selected="selected">--비밀번호 힌트--</option>
-						<option value="1">출신학교</option>
-						<option value="2">별명</option>
-						<option value="3">기억에 남는 장소</option>
-					</select>
-				</span> <span class="error_next_box"></span>
-			</div>
-			<div>
-				<h3 class="join_title">
-					<label for="answer">비밀번호답변</label>
-				</h3>
-				<span class="box int_mobile"> <input type="tel" id="mobile"
-					class="int" maxlength="16" placeholder="${vo.memberPassHintAnswer }" name="memberPassHintAnswer">
-				</span> <span class="error_next_box"></span>
-			</div>
-			<!-- JOIN BTN-->
-			<div class="btn_area">
-
-				<button type="button" id="btnJoin" onclick="btnYes()">
-					<span>변 경 하 기</span>
-				</button>
-
-				<a href="mypage.do" id="btnCancel">
-					<button type="button" id="btnJoin">
-
-						<span>취 소 하 기</span>
-					</button>
-				</a>
-			</div>
 			</form>
-
-
 		</div>
 		<!-- content-->
-
 	</div>
 	<!-- wrapper -->
 

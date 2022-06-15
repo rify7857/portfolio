@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <head>
 <html lang="en">
@@ -16,7 +16,7 @@
     	 <div class="profile">
 					<img class="user-img" src="/f5/resources/images/user.png"><br>
 				</div>
-				<span class="profile-h"><h2> Username 님, 환영합니다!</h2></span>
+				<span class="profile-h"><h2> ${sessionScope.memberId } 님, 환영합니다!</h2></span>
 				<hr>
         
        <!-- comment -->
@@ -28,16 +28,18 @@
 	       		</div>
 	       		<table>
 	       			<tr>
-	       				<th>목차</th>
+	       				<th>번호</th>
 	       				<th>제목</th>
 	       				<th>내용</th>
-	       				<th>변경사항</th>
+	       				<th>날짜</th>
 	       			</tr>
 	       			<tr>
-	       				<td>num</td>
-	       				<td>title</td>
-	       				<td>content</td>
-	       				<td><button type="button">변경하기</button></td>
+	       			<c:forEach var="vo" items="${ result.boardList }">
+	       				<td>${ vo.rno }</td>
+	       				<td><a href="board_content.do?boardIdx=${ vo.boardIdx }">${ vo.boardTitle }</a></td>
+	       				<td>${ vo.boardContent }</td>
+	       				<td>${ vo.boardDate }</td>
+	       			</c:forEach>
 	       			</tr>
 	       			
 	       		</table><br>

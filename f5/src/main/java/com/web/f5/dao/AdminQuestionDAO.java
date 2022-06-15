@@ -169,4 +169,9 @@ public class AdminQuestionDAO implements AdminObjDAO {
 		
 		return sqlSession.selectOne(namespace + ".getAnswerCompleteCnt");
 	}
+
+	public AdminQuestionVO getQuestionContent(String idx) {
+		
+		return sqlSession.selectOne(namespace + ".getQuestionContent", idx);
+	}
 }

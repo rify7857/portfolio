@@ -65,11 +65,11 @@ function list() {
 						<td><textarea rows="10" id="notice_content" name="boardContent">${ vo.boardContent }</textarea></td>
 					</tr>
 				</table>
+				</form>
 				<div class="notice_btn">
 					<button class="notice_update" onclick="update()">수정하기</button>
 					<button class="notice_list" onclick="list()">목록</button>
 				</div>
-				</form>
 			</div>
 		</div>
 	</div>

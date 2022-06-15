@@ -32,15 +32,10 @@ public class AdminStoreController {
 	private AdminStoreService adminStoreService;
 	
 	@Autowired
-	private AdminBoardService adminBoardService;
-	
-	@Autowired
 	private PageServiceImpl pageService;
 	
 	@RequestMapping ( value = "admin/store_list.do", method = RequestMethod.GET )
 	public ModelAndView admin_store_list(String rpage, String search, String search_type) {
-		
-		adminBoardService.getInsertPageview("store_list");
 		
 		ModelAndView mv = new ModelAndView();
 		Map<String, String> param = null;
@@ -85,8 +80,6 @@ public class AdminStoreController {
 	
 	@RequestMapping ( value = "admin/store_information.do", method = RequestMethod.GET )
 	public ModelAndView admin_store_information(String rpage, String idx, String rno) {
-		
-		adminBoardService.getInsertPageview("store_information");
 		
 		Map<String, Object> result = new HashMap<String, Object>();
 		int startCount = 0;

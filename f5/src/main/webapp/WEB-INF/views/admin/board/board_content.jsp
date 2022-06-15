@@ -332,10 +332,14 @@
 						<dl>
 						<c:choose>
 							<c:when test="${brvo.boardRecommendCheck eq '0'}">
-								<button style="background-color: red" class="recommend_btn" id="reco_${vo.boardIdx }" value='2'>추천</button>
+								<button class="recommend_btn" id="reco_${vo.boardIdx }" value='2'>
+									<img class="btn-img" src="/f5/resources/images/thumbs-up-click.png">
+								</button>
 							</c:when>
 							<c:otherwise>
-								<button style="background-color: white" class="recommend_btn" id="reco_${vo.boardIdx }" value='0'>추천</button>
+								<button class="recommend_btn" id="reco_${vo.boardIdx }" value='0'>
+									<img class="btn-img" src="/f5/resources/images/thumbs-up.png">
+								</button>
 							</c:otherwise>
 						</c:choose>
 							<dd id="board_reco_${vo.boardIdx }">${reco }</dd>
@@ -343,10 +347,14 @@
 						<dl>
 						<c:choose>
 							<c:when test="${brvo.boardRecommendCheck eq '1'}">
-								<button style="background-color: red" class="derecommend_btn" id="deco_${vo.boardIdx }" value='2'>비추천</button>
+								<button class="derecommend_btn" id="deco_${vo.boardIdx }" value='2'>
+									<img class="btn-img" src="/f5/resources/images/thumbs-down-click.png">
+								</button>
 							</c:when>
 							<c:otherwise>
-								<button style="background-color: white" class="derecommend_btn" id="deco_${vo.boardIdx }" value='1'>비추천</button>
+								<button class="derecommend_btn" id="deco_${vo.boardIdx }" value='1'>
+									<img class="btn-img" src="/f5/resources/images/thumbs-down.png">
+								</button>
 							</c:otherwise>
 						</c:choose>
 							<dd id="board_deco_${vo.boardIdx }">${deco }</dd>
@@ -391,18 +399,9 @@
 								<input type="hidden" name="boardIdx" value="${vo.boardIdx }">
 									<div class="reply-member">
 										<a>${list.memberId }</a>
-										<c:choose>
-											<c:when test="${sessionScope.memberId eq list.memberId }">											
-												<div>
-													<button type="button" class="reply_delete_btn" id="${list.replyIdx }">삭제</button>
-												</div>
-											</c:when>
-											<c:otherwise>
-												<div style="display: none">
-													<button type="button" class="reply_delete_btn" id="${list.replyIdx }">삭제</button>
-												</div>
-											</c:otherwise>
-										</c:choose>
+										<div>
+											<button type="button" class="reply_delete_btn" id="${list.replyIdx }">삭제</button>
+										</div>
 									</div>
 									<div class="reply-content-div" id="reply-content-div-${list.replyIdx }">${list.replyContent }</div>
 									<div class="reply-etc">

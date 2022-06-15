@@ -21,7 +21,6 @@ function update(){
 		$(".faq_answer").focus();
 	} else {
 		
-// 		submit();
 		if ( confirm("수정하시겠습니까?") ) {
 			faqAnswer = faqAnswer.replace(/(?:\r\n|\r|\n)/g, '<br>');
 			faqUpdate.submit();
@@ -72,11 +71,11 @@ function list() {
 						 placeholder="  내용을 입력해주세요." onfocus="this.placeholder=''" onblur="this.placeholder='  내용을 입력해주세요.'">${ vo.faqContent }</textarea>
 					</tr>
 				</table>
+				</form>
 				<div class="faq_btn">
 					<button class="faq_update" onclick="update()">수정</button>
 					<button class="faq_list" onclick="list()">목록</button>
 				</div>
-				</form>
 			</div>
 		</div>
 	</div>

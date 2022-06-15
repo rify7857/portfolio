@@ -9,20 +9,27 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.web.f5.service.AdminBoardService;
 import com.web.f5.vo.NewsVO;
 
 @Controller
 public class NewsController {
 	
+	@Autowired
+	private AdminBoardService adminBoardService;
+	
 	public static HashMap<String, String> map;
 	
 	@RequestMapping(value="/news_list.do", method=RequestMethod.GET)
 	public ModelAndView news_list() throws Exception {
+		
+		adminBoardService.getInsertPageview("news_list");
 		
 		ModelAndView mv = new ModelAndView();
 

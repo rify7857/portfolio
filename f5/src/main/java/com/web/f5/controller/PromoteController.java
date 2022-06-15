@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.web.f5.service.AdminBoardService;
 import com.web.f5.service.BoardPageServiceImpl;
 import com.web.f5.service.BoardService;
 import com.web.f5.service.BoardServiceImpl;
@@ -31,6 +32,9 @@ public class PromoteController {
 	
 	@Autowired
 	private BoardPageServiceImpl boardpageService;
+	
+	@Autowired
+	private AdminBoardService adminBoardService;
 	
 	@Autowired
 	private FileServiceImpl fileService;
@@ -78,7 +82,7 @@ public class PromoteController {
 		oldFile.add(vo.getBsFile5());
 		
 		vo = fileService.mutiFileCheck(vo);
-		
+		vo.setBoardContent(vo.getBoardContent().replaceAll("\r\n", "<br>"));
 		int result = boardService.getContentUpdate(vo);
 		if( result == 1 ) {
 			int check = fileService.multiFileSave(vo, request, oldFile);
@@ -108,9 +112,12 @@ public class PromoteController {
 	// 홍보 수정
 	@RequestMapping(value="/promote_update.do", method=RequestMethod.GET)
 	public ModelAndView promote_update(String boardIdx) {
+		
+		adminBoardService.getInsertPageview("promote_update");
+		
 		ModelAndView mv = new ModelAndView();
 		BoardVO vo = boardService.getContentList(boardIdx);
-		
+		vo.setBoardContent(vo.getBoardContent().replace("<br>", "\r\n"));
 		mv.addObject("vo", vo);
 		mv.setViewName("board/promote/promote_update");
 		
@@ -125,6 +132,7 @@ public class PromoteController {
 		ModelAndView mv = new ModelAndView();
 		vo = fileService.mutiFileCheck(vo);
 		vo.setBoardCategory("홍보");
+		vo.setBoardContent(vo.getBoardContent().replaceAll("\r\n", "<br>"));
 		int result = boardService.getInsertResult(vo);
 		if( result == 1) {
 			fileService.multiFileSave(vo, request);
@@ -140,6 +148,8 @@ public class PromoteController {
 	@RequestMapping(value="/promote_write.do", method=RequestMethod.GET)
 	public String promote_write() {
 		
+		adminBoardService.getInsertPageview("promote_update");
+		
 		return "board/promote/promote_write";
 	}
 	
@@ -151,7 +161,9 @@ public class PromoteController {
 		
 		List<BoardVO> list = new ArrayList<BoardVO>();
 		Map<String, String> param = null;
-			
+		
+		System.out.println(search);
+		
 		if(search == null) {
 			param = boardpageService.getPageResult(rpage, boardCategory);
 			int startCount = Integer.parseInt(param.get("start"));
@@ -182,6 +194,7 @@ public class PromoteController {
 			obj.addProperty("boardDate", bvo.getBoardDate());
 			obj.addProperty("boardUpdateDate", bvo.getBoardUpdateDate());
 			obj.addProperty("boardCategory", bvo.getBoardCategory());
+			obj.addProperty("bsFile1", bvo.getBsFile1());
 			
 			jlist.add(obj);
 		}
@@ -195,6 +208,9 @@ public class PromoteController {
 	// 홍보 리스트
 	@RequestMapping(value="/promote_list.do", method=RequestMethod.GET)
 	public ModelAndView promote_list(String rpage, String search, String search_type) {
+		
+		adminBoardService.getInsertPageview("promote_update");
+		
 		ModelAndView mv = new ModelAndView();
 		List<BoardVO> list = new ArrayList<BoardVO>();
 		String boardCategory = "1";
@@ -215,6 +231,8 @@ public class PromoteController {
 
 		}
 		mv.addObject("list", list);
+		mv.addObject("search", search);
+		mv.addObject("search_type", search_type);
 		mv.addObject("dbCount", Integer.parseInt(param.get("dbCount")));
 		mv.addObject("pageSize", Integer.parseInt(param.get("pageSize")));
 		mv.addObject("reqPage", Integer.parseInt(param.get("reqPage")));

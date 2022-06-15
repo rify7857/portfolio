@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<title>Gangnam Foodly | 관리자</title>
 <link href="/f5/resources/css/admin/dashboard.css" rel="stylesheet" />
 <script src="/f5/resources/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
@@ -175,7 +176,7 @@ function ceo_graph(){
 			new Chart(document.getElementById("CEOreqChart"), {
 				type : 'doughnut',
 				data : {
-					labels : ['등록된 CEO', '오늘 신청 CEO'],
+					labels : ['등록된 CEO', '신청 CEO'],
 					datasets : [{
 						label : "first dataset",
 						data : [total, today],

@@ -10,26 +10,23 @@ html{
 	background-color: #FFB85A;
 	  font-family: 'HSYuji-Regular';
 }
-table {
-	width: 100%;
-	border-collapse: collapse;
-}
 .headlogo{
 	text-align: center;
 }
 .mainlogo{
 	width: 50%;
 }
-#pwHint{
+table {
 	width: 100%;
+	border-collapse: collapse;
 }
 
 #postcode {
-	width: 70% !important;
+	width: 30% !important;
 }
 
 .addr_btn {
-	width: 26% !important;
+	width: 40% !important;
 	background-color: brown;
 	color: #fff;
 	border: none;
@@ -37,15 +34,15 @@ table {
 }
 
 #address {
-	width: 98% !important;
+	width: 100% !important;
 }
 
 #detailAddress {
-	width: 59% !important;
+	width: 60% !important;
 }
 
 #extraAddress {
-	width: 35% !important;
+	width: 30% !important;
 }
 
 ul > li { 
@@ -61,7 +58,7 @@ a {
 }
 
 ul.join_box {
-	border: 10px solid #ddd;
+	border: 1px solid #ddd;
 	background-color: #fff;
 }
 
@@ -74,7 +71,7 @@ ul.join_box {
 }
 
 .checkBox > ul > li:first-child {
-	width: 75%;
+	width: 85%;
 	padding: 15px;
 	font-weight: 600;
 	color: #888;
@@ -114,7 +111,7 @@ ul.join_box {
 
 #content {
     height: 100%;
-    width: 50%;
+    width: 80%;
     margin: 0 auto;
 }
 
@@ -134,11 +131,11 @@ ul.join_box {
 
 #join_table input {
 	
-	width: 98%;
+	width: 100%;
 }
 
 #join_table input#id {
-	width: 70% !important;
+	width: 75% !important;
 }
 
 #join_table #idChk {
@@ -146,7 +143,6 @@ ul.join_box {
 	border-radius: 5%;
 	background-color: brown;
 	color: #fff;
-	width: 26%;
 }
 
 #join_table input#year{
@@ -231,7 +227,7 @@ ul.join_box {
 }
 
 #join_table #gender {
-	width: 102%;
+	width: 100%;
 }
 
 .table_btn {

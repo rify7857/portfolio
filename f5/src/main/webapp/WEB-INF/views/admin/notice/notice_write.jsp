@@ -26,7 +26,7 @@ function register() {
 			
 			alert("등록되었습니다.");
 			location.href="notice_list.do";
-// 			submit();
+			noticeInsert.submit();
 		} else {
 			
 			return;
@@ -68,18 +68,12 @@ function list() {
 					<tr>
 						<td><textarea rows="10" id="notice_content" name="boardContent"></textarea></td>
 					</tr>
-					<tr>
-						<td><label>파일첨부</label></td>
-					</tr>
-					<tr>
-						<td><input type="file" id="file"></td>
-					</tr>
 				</table>
+				</form>
 				<div class="notice_btn">
-					<button type="submit" class="notice_register">등록</button>
+					<button type="button" class="notice_register" onclick="register()">등록</button>
 					<button class="notice_list" onclick="list()">목록</button>
 				</div>
-				</form>
 			</div>
 		</div>
 	</div>

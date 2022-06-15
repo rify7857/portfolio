@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.web.f5.service.AdminMemberService;
 import com.web.f5.service.MemberService;
 import com.web.f5.vo.MemberVO;
 
@@ -15,12 +16,27 @@ public class JoinController {
 	
 	@Autowired MemberService memberService;
 	
+	@Autowired
+	private AdminMemberService adminMemberService;
+	
 	@ResponseBody
-	@RequestMapping(value="/idcheck.do", method=RequestMethod.GET)
-	public String idcheck(String id) {
-		int result = memberService.getIdCheckResult(id);		
-		return String.valueOf(result);
-	}	
+	@RequestMapping ( value = "/idChk.do", method = RequestMethod.GET )
+	public String idChk(String id) {
+		
+		String msg = "";
+		
+		int result = adminMemberService.getIdChk(id);
+		
+		if ( result == 1 ) {
+			
+			msg = "fail";
+		} else {
+			
+			msg = "succ";
+		}
+		
+		return msg;
+	}
 	
 	@RequestMapping(value="/join.do", method=RequestMethod.GET)
 	public String join() {

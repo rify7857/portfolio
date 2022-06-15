@@ -121,15 +121,14 @@ public class IndexController {
 	public String store_search_json(String rpage, String search) {
 		
 		String search_type = "";
-		System.out.println(search);
-		System.out.println(search_type);
+		
 		Map<String, String> param = pageService.getSearchResult(search_type, search, rpage, "store_search", adminStoreService);
 		
 		int startCount = Integer.parseInt( param.get("start") );
 		int endCount = Integer.parseInt( param.get("end") );
 		
 		ArrayList<AdminStoreVO> list = adminStoreService.getsearchJSONResult(startCount, endCount, search, search_type);
-		System.out.println(list);
+		
 		JsonObject jdata = new JsonObject();
 		JsonArray jlist = new JsonArray();
 		Gson gson = new Gson();
