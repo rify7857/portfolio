@@ -32,17 +32,17 @@
 	       				<th>제목</th>
 	       				<th>답변여부</th>
 	       			</tr>
-	       			<tr>
 	       				<c:forEach var="vo" items="${result.list }">
-	       					<td>${ vo.rno }</td>
-	       					<td><a href="question_content.do?idx=${ vo.questionIdx }">${ vo.questionTitle }</a></td>
-	       					<td>
-								<c:if test="${ vo.questionProceed eq '0' }">대기중</c:if>
-								<c:if test="${ vo.questionProceed eq '1' }">답변중</c:if>
-								<c:if test="${ vo.questionProceed eq '2' }">답변완료</c:if>
-							</td>
-	       				</c:forEach>
+	       			<tr>
+       					<td>${ vo.rno }</td>
+       					<td><a href="question_content.do?idx=${ vo.questionIdx }">${ vo.questionTitle }</a></td>
+       					<td>
+							<c:if test="${ vo.questionProceed eq '0' }">대기중</c:if>
+							<c:if test="${ vo.questionProceed eq '1' }">답변중</c:if>
+							<c:if test="${ vo.questionProceed eq '2' }">답변완료</c:if>
+						</td>
 	       			</tr>
+	       				</c:forEach>
 	       			
 	       		</table><br>
 	       				<!-- Search -->

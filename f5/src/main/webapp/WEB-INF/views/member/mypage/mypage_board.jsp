@@ -33,14 +33,14 @@
 	       				<th>내용</th>
 	       				<th>날짜</th>
 	       			</tr>
-	       			<tr>
 	       			<c:forEach var="vo" items="${ result.boardList }">
+	       			<tr>
 	       				<td>${ vo.rno }</td>
 	       				<td><a href="board_content.do?boardIdx=${ vo.boardIdx }">${ vo.boardTitle }</a></td>
 	       				<td>${ vo.boardContent }</td>
 	       				<td>${ vo.boardDate }</td>
-	       			</c:forEach>
 	       			</tr>
+	       			</c:forEach>
 	       			
 	       		</table><br>
 	       				<!-- Search -->

@@ -1,14 +1,16 @@
 package com.web.f5.controller;
 
-import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -20,7 +22,6 @@ import com.google.gson.JsonObject;
 import com.web.f5.service.AdminBoardService;
 import com.web.f5.service.AdminMemberService;
 import com.web.f5.service.AdminQuestionService;
-import com.web.f5.vo.AdminBoardVO;
 import com.web.f5.vo.AdminMemberVO;
 import com.web.f5.vo.AdminQuestionVO;
 
@@ -37,7 +38,15 @@ public class AdminController {
 	private AdminBoardService adminBoardService;
 	
 	@RequestMapping ( value = "admin/admin.do", method = RequestMethod.GET )
-	public ModelAndView admin(String rpage) {
+	public ModelAndView admin(String rpage, HttpServletRequest request, HttpServletResponse response) {
+		HttpSession session = request.getSession();
+		String memberId = (String) session.getAttribute("memberId");
+		
+		if ( memberId == null && memberId != "admin"  ) {
+			
+			return new ModelAndView("redirect:/index.do");
+		} else {
+			
 		
 		String todayCnt = "0";
 		String totalCnt = "0";
@@ -72,6 +81,7 @@ public class AdminController {
 		result.put("questionList", questionList);
 		
 		return new ModelAndView("admin/dashboard", "result", result);
+		}
 	}
 	
 	@ResponseBody
